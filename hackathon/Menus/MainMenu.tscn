@@ -1,11 +1,24 @@
 [gd_scene format=3 uid="uid://ghqw7tgmu4b5"]
 
+[ext_resource type="Script" uid="uid://hhc8kvp13110" path="res://Menus/main_menu.gd" id="1_3g7qx"]
+
 [node name="Menus" type="Node" unique_id=143270072]
 
 [node name="MainMenu" type="Node2D" parent="." unique_id=126343475]
+script = ExtResource("1_3g7qx")
 
 [node name="ColorRect" type="ColorRect" parent="MainMenu" unique_id=41045285]
-offset_right = 1920.0
-offset_bottom = 1080.0
+custom_minimum_size = Vector2(1920, 1080)
 color = Color(0.8304341, 0.68401027, 0.51294774, 1)
 metadata/_edit_use_anchors_ = true
+
+[node name="StartButton" type="Button" parent="MainMenu" unique_id=1874249547]
+offset_left = 640.0
+offset_top = 100.0
+offset_right = 1281.0
+offset_bottom = 278.0
+theme_override_font_sizes/font_size = 124
+text = "Play Game"
+flat = true
+
+[connection signal="pressed" from="MainMenu/StartButton" to="MainMenu" method="_on_start_button_pressed"]

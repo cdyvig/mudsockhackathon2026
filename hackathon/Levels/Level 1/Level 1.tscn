@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://ctp2vra80ohjm"]
+
+[ext_resource type="Texture2D" uid="uid://clihn8oi3ifju" path="res://Levels/Level 1/Guitar BBB.png" id="1_jhvdf"]
+
+[sub_resource type="Curve2D" id="Curve2D_jhvdf"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1781, -2, 0, 0, 0, 0, 1, 878)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_5m51o"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1894, 1, 0, 0, 0, 0, -1, 937)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_i454g"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1931, 33, 0, 0, 0, 0, -2, 989)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_pdyvf"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1925, 96, 0, 0, 0, 0, -3, 1051)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_c2j31"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1928, 155, 0, 0, 0, 0, 54, 1080)
+}
+point_count = 2
+
+[node name="Level1" type="Node2D" unique_id=523294324]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=85126737]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_jhvdf")
+
+[node name="BString" type="Path2D" parent="." unique_id=729534429]
+curve = SubResource("Curve2D_jhvdf")
+
+[node name="EString" type="Path2D" parent="." unique_id=1042125965]
+curve = SubResource("Curve2D_5m51o")
+
+[node name="AString" type="Path2D" parent="." unique_id=336530230]
+curve = SubResource("Curve2D_i454g")
+
+[node name="DString" type="Path2D" parent="." unique_id=1453732659]
+curve = SubResource("Curve2D_pdyvf")
+
+[node name="GString" type="Path2D" parent="." unique_id=507685775]
+curve = SubResource("Curve2D_c2j31")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1663987056]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=1164405081]
+polygon = PackedVector2Array(279, 622, 490, 1026, 326, 1100, 116, 700)
