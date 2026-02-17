@@ -23,6 +23,7 @@ window/size/viewport_height=1080
 [file_customization]
 
 folder_colors={
+"res://Guitar/": "blue",
 "res://Menus/": "red",
 "res://Music/": "purple"
 }
