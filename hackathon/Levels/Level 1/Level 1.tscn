@@ -1,60 +1,117 @@
 [gd_scene format=3 uid="uid://ctp2vra80ohjm"]
 
-[ext_resource type="Texture2D" uid="uid://clihn8oi3ifju" path="res://Levels/Level 1/Guitar BBB.png" id="1_jhvdf"]
+[ext_resource type="Texture2D" uid="uid://dg8abllqywpmq" path="res://Guitar/guitar_base.PNG" id="2_qo688"]
+[ext_resource type="Texture2D" uid="uid://dfq51a6pt5y1k" path="res://Guitar/B_string.PNG" id="3_es52h"]
+[ext_resource type="AudioStream" uid="uid://bp6qf4qwtoo8b" path="res://Music/test_tutorial2.mp3" id="3_pdyvf"]
+[ext_resource type="Texture2D" uid="uid://dtwfhlvcr14lu" path="res://Guitar/E_string.PNG" id="4_ya4yr"]
+[ext_resource type="Texture2D" uid="uid://cdtt8xf2hin0" path="res://Guitar/A_string.PNG" id="5_oyp2h"]
+[ext_resource type="Texture2D" uid="uid://boga4rcrh1262" path="res://Guitar/D_string.PNG" id="6_vl0ly"]
+[ext_resource type="Texture2D" uid="uid://cwm2xtftv41xu" path="res://Guitar/G_string.PNG" id="7_37cix"]
 
 [sub_resource type="Curve2D" id="Curve2D_jhvdf"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1781, -2, 0, 0, 0, 0, 1, 878)
+"points": PackedVector2Array(0, 0, 0, 0, 1697.4318, -3.0476167, 0, 0, 0, 0, -66.85446, 875.8093)
 }
 point_count = 2
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c2j31"]
+
 [sub_resource type="Curve2D" id="Curve2D_5m51o"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1894, 1, 0, 0, 0, 0, -1, 937)
+"points": PackedVector2Array(0, 0, 0, 0, 1879, -1, 0, 0, 0, 0, -2, 928)
 }
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_i454g"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1931, 33, 0, 0, 0, 0, -2, 989)
+"points": PackedVector2Array(0, 0, 0, 0, 1922, 71, 0, 0, 0, 0, 0, 1022)
 }
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_pdyvf"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1925, 96, 0, 0, 0, 0, -3, 1051)
+"points": PackedVector2Array(0, 0, 0, 0, 1920, 157, 0, 0, 0, 0, 51, 1080)
 }
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_c2j31"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1928, 155, 0, 0, 0, 0, 54, 1080)
+"points": PackedVector2Array(0, 0, 0, 0, 1920, 234, 0, 0, 0, 0, 207, 1080)
 }
 point_count = 2
 
-[node name="Level1" type="Node2D" unique_id=523294324]
+[node name="Levels" type="Node2D" unique_id=523294324]
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=85126737]
+[node name="LevelBase" type="Node2D" parent="." unique_id=1487712184]
+
+[node name="GuitarBase" type="TextureRect" parent="LevelBase" unique_id=85126737]
 offset_right = 1920.0
 offset_bottom = 1080.0
-texture = ExtResource("1_jhvdf")
+texture = ExtResource("2_qo688")
 
-[node name="BString" type="Path2D" parent="." unique_id=729534429]
+[node name="BString" type="Path2D" parent="LevelBase" unique_id=729534429]
+position = Vector2(64.00001, 2.9999995)
+scale = Vector2(0.9573034, 0.95454556)
 curve = SubResource("Curve2D_jhvdf")
 
-[node name="EString" type="Path2D" parent="." unique_id=1042125965]
+[node name="PathFollow2D" type="PathFollow2D" parent="LevelBase/BString" unique_id=495033197]
+position = Vector2(-66.85447, 875.8094)
+rotation = 2.6794362
+progress = 1971.0646
+
+[node name="Area2D" type="Area2D" parent="LevelBase/BString/PathFollow2D" unique_id=1063494002]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelBase/BString/PathFollow2D/Area2D" unique_id=1214090968]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_c2j31")
+
+[node name="BStr" type="TextureRect" parent="LevelBase/BString" unique_id=1252705614]
+offset_left = -66.85446
+offset_top = -3.0476167
+offset_right = 1924.1338
+offset_bottom = 1128.2855
+texture = ExtResource("3_es52h")
+
+[node name="EString" type="Path2D" parent="LevelBase" unique_id=1042125965]
 curve = SubResource("Curve2D_5m51o")
 
-[node name="AString" type="Path2D" parent="." unique_id=336530230]
+[node name="EStr" type="TextureRect" parent="LevelBase/EString" unique_id=1631306575]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("4_ya4yr")
+
+[node name="AString" type="Path2D" parent="LevelBase" unique_id=336530230]
 curve = SubResource("Curve2D_i454g")
 
-[node name="DString" type="Path2D" parent="." unique_id=1453732659]
+[node name="AStr" type="TextureRect" parent="LevelBase/AString" unique_id=343223685]
+offset_left = -8.0
+offset_right = 1920.0
+offset_bottom = 1085.0
+texture = ExtResource("5_oyp2h")
+
+[node name="DString" type="Path2D" parent="LevelBase" unique_id=1453732659]
 curve = SubResource("Curve2D_pdyvf")
 
-[node name="GString" type="Path2D" parent="." unique_id=507685775]
+[node name="DStr" type="TextureRect" parent="LevelBase/DString" unique_id=1909984037]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("6_vl0ly")
+
+[node name="GString" type="Path2D" parent="LevelBase" unique_id=507685775]
 curve = SubResource("Curve2D_c2j31")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1663987056]
+[node name="GStr" type="TextureRect" parent="LevelBase/GString" unique_id=836439260]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("7_37cix")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=1164405081]
-polygon = PackedVector2Array(279, 622, 490, 1026, 326, 1100, 116, 700)
+[node name="StrumArea" type="Area2D" parent="LevelBase" unique_id=1663987056]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LevelBase/StrumArea" unique_id=1164405081]
+polygon = PackedVector2Array(212, 650, 421, 1054, 392, 1068, 185, 665)
+
+[node name="Level1" type="Node2D" parent="." unique_id=998625940]
+visible = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Level1" unique_id=1933253156]
+stream = ExtResource("3_pdyvf")
