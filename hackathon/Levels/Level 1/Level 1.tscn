@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://ctp2vra80ohjm"]
 
+[ext_resource type="Script" uid="uid://8eq5hsochgy6" path="res://Levels/Level 1/level_1.gd" id="1_qo688"]
 [ext_resource type="Texture2D" uid="uid://dg8abllqywpmq" path="res://Guitar/guitar_base.PNG" id="2_qo688"]
 [ext_resource type="Texture2D" uid="uid://dfq51a6pt5y1k" path="res://Guitar/B_string.PNG" id="3_es52h"]
 [ext_resource type="AudioStream" uid="uid://bp6qf4qwtoo8b" path="res://Music/test_tutorial2.mp3" id="3_pdyvf"]
@@ -40,78 +41,73 @@ _data = {
 }
 point_count = 2
 
-[node name="Levels" type="Node2D" unique_id=523294324]
+[node name="Level1" type="Node2D" unique_id=523294324]
+script = ExtResource("1_qo688")
 
-[node name="LevelBase" type="Node2D" parent="." unique_id=1487712184]
-
-[node name="GuitarBase" type="TextureRect" parent="LevelBase" unique_id=85126737]
+[node name="GuitarBase" type="TextureRect" parent="." unique_id=85126737]
 offset_right = 1920.0
 offset_bottom = 1080.0
 texture = ExtResource("2_qo688")
 
-[node name="BString" type="Path2D" parent="LevelBase" unique_id=729534429]
+[node name="BString" type="Path2D" parent="." unique_id=729534429]
 position = Vector2(64.00001, 2.9999995)
 scale = Vector2(0.9573034, 0.95454556)
 curve = SubResource("Curve2D_jhvdf")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="LevelBase/BString" unique_id=495033197]
-position = Vector2(-66.85447, 875.8094)
+[node name="PathFollow2D" type="PathFollow2D" parent="BString" unique_id=495033197]
+position = Vector2(1697.4318, -3.0476167)
 rotation = 2.6794362
-progress = 1971.0646
 
-[node name="Area2D" type="Area2D" parent="LevelBase/BString/PathFollow2D" unique_id=1063494002]
+[node name="Area2D" type="Area2D" parent="BString/PathFollow2D" unique_id=1063494002]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelBase/BString/PathFollow2D/Area2D" unique_id=1214090968]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BString/PathFollow2D/Area2D" unique_id=1214090968]
 scale = Vector2(3, 3)
 shape = SubResource("RectangleShape2D_c2j31")
 
-[node name="BStr" type="TextureRect" parent="LevelBase/BString" unique_id=1252705614]
+[node name="BStr" type="TextureRect" parent="BString" unique_id=1252705614]
 offset_left = -66.85446
 offset_top = -3.0476167
 offset_right = 1924.1338
 offset_bottom = 1128.2855
 texture = ExtResource("3_es52h")
 
-[node name="EString" type="Path2D" parent="LevelBase" unique_id=1042125965]
+[node name="EString" type="Path2D" parent="." unique_id=1042125965]
 curve = SubResource("Curve2D_5m51o")
 
-[node name="EStr" type="TextureRect" parent="LevelBase/EString" unique_id=1631306575]
+[node name="EStr" type="TextureRect" parent="EString" unique_id=1631306575]
 offset_right = 1920.0
 offset_bottom = 1080.0
 texture = ExtResource("4_ya4yr")
 
-[node name="AString" type="Path2D" parent="LevelBase" unique_id=336530230]
+[node name="AString" type="Path2D" parent="." unique_id=336530230]
 curve = SubResource("Curve2D_i454g")
 
-[node name="AStr" type="TextureRect" parent="LevelBase/AString" unique_id=343223685]
+[node name="AStr" type="TextureRect" parent="AString" unique_id=343223685]
 offset_left = -8.0
 offset_right = 1920.0
 offset_bottom = 1085.0
 texture = ExtResource("5_oyp2h")
 
-[node name="DString" type="Path2D" parent="LevelBase" unique_id=1453732659]
+[node name="DString" type="Path2D" parent="." unique_id=1453732659]
 curve = SubResource("Curve2D_pdyvf")
 
-[node name="DStr" type="TextureRect" parent="LevelBase/DString" unique_id=1909984037]
+[node name="DStr" type="TextureRect" parent="DString" unique_id=1909984037]
 offset_right = 1920.0
 offset_bottom = 1080.0
 texture = ExtResource("6_vl0ly")
 
-[node name="GString" type="Path2D" parent="LevelBase" unique_id=507685775]
+[node name="GString" type="Path2D" parent="." unique_id=507685775]
 curve = SubResource("Curve2D_c2j31")
 
-[node name="GStr" type="TextureRect" parent="LevelBase/GString" unique_id=836439260]
+[node name="GStr" type="TextureRect" parent="GString" unique_id=836439260]
 offset_right = 1920.0
 offset_bottom = 1080.0
 texture = ExtResource("7_37cix")
 
-[node name="StrumArea" type="Area2D" parent="LevelBase" unique_id=1663987056]
+[node name="StrumArea" type="Area2D" parent="." unique_id=1663987056]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LevelBase/StrumArea" unique_id=1164405081]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StrumArea" unique_id=1164405081]
 polygon = PackedVector2Array(212, 650, 421, 1054, 392, 1068, 185, 665)
 
-[node name="Level1" type="Node2D" parent="." unique_id=998625940]
-visible = false
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Level1" unique_id=1933253156]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1933253156]
 stream = ExtResource("3_pdyvf")
