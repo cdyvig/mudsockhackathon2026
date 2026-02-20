@@ -1,5 +1,3 @@
-# level_1.gd (attach to Level1 Node2D)
-
 extends Node2D
 
 @onready var timer2: Timer = $"delay timer"
@@ -11,8 +9,11 @@ extends Node2D
 @onready var DString: Path2D = $DString
 @onready var GString: Path2D = $GString
 
+var chart_done := false
+var end_triggered := false
+
 func _ready() -> void:
-	# give GlobalStrings access to the paths
+	# assign paths
 	GlobalStrings.BString = BString
 	GlobalStrings.EString = EString
 	GlobalStrings.AString = AString
@@ -24,6 +25,14 @@ func _ready() -> void:
 	$UnpauseButton.process_mode = Node.PROCESS_MODE_ALWAYS
 	$BackButton.process_mode = Node.PROCESS_MODE_ALWAYS
 
+	# reset score + notes list
+	GlobalStrings.reset_score()
+	GlobalStrings.active_notes.clear()
+
+	# run chart async
+	run_chart()
+
+func run_chart() -> void:
 	# --- chart (your current timing sequence) ---
 	timer2.start(2.29)
 	await timer2.timeout
@@ -60,8 +69,10 @@ func _ready() -> void:
 	timer1.start(0.25); await timer1.timeout; GlobalStrings.createBnote()
 	timer1.start(0.25); await timer1.timeout; GlobalStrings.createAnote()
 
+	chart_done = true
+
 func _physics_process(delta: float) -> void:
-	# Move notes safely (handles notes freed by hitbars)
+	# move notes safely
 	for note in GlobalStrings.active_notes.duplicate():
 		if not is_instance_valid(note):
 			GlobalStrings.active_notes.erase(note)
@@ -69,11 +80,19 @@ func _physics_process(delta: float) -> void:
 
 		note.progress_ratio += delta / 2.0
 
+		# MISS when it reaches the end
 		if note.progress_ratio >= 0.9999:
+			GlobalStrings.register_miss()
 			GlobalStrings.active_notes.erase(note)
 			note.queue_free()
 
+func _process(_delta: float) -> void:
+	# go to end screen when chart is done and no notes left
+	if not end_triggered and chart_done and GlobalStrings.active_notes.size() == 0:
+		end_triggered = true
+		get_tree().change_scene_to_file("res://Menus/EndScreen.tscn")
 
+#menu buttons
 func _on_pause_button_pressed() -> void:
 	get_tree().paused = true
 	$UnpauseButton.show()
