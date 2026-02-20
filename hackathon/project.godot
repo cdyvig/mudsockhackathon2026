@@ -21,6 +21,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+GameUI="*uid://del3rn74f410h"
 GlobalStrings="*uid://d8ynqj8v6v02"
 
 [display]

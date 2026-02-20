@@ -1,10 +1,13 @@
 extends Area2D
 
 @export var sfx: AudioStreamPlayer
+
 var note_in_bar: Area2D = null
 
 func _ready() -> void:
 	monitoring = true
+	collision_layer = 1
+	collision_mask = 1
 	area_entered.connect(_on_area_entered)
 	area_exited.connect(_on_area_exited)
 
@@ -16,6 +19,8 @@ func _process(_delta: float) -> void:
 	if action_name != "" and Input.is_action_just_pressed(action_name):
 		if sfx:
 			sfx.play()
+
+		GlobalStrings.register_hit()
 
 		var note_path := note_in_bar.get_parent() as PathFollow2D
 		if note_path:
