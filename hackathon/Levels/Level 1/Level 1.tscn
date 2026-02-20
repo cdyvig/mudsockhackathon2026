@@ -3,11 +3,11 @@
 [ext_resource type="Script" uid="uid://8eq5hsochgy6" path="res://Levels/Level 1/level_1.gd" id="1_qo688"]
 [ext_resource type="Texture2D" uid="uid://dg8abllqywpmq" path="res://Guitar/guitar_base.PNG" id="2_qo688"]
 [ext_resource type="Texture2D" uid="uid://dfq51a6pt5y1k" path="res://Guitar/B_string.PNG" id="3_es52h"]
-[ext_resource type="AudioStream" uid="uid://bp6qf4qwtoo8b" path="res://Music/test_tutorial2.mp3" id="3_pdyvf"]
 [ext_resource type="Texture2D" uid="uid://dtwfhlvcr14lu" path="res://Guitar/E_string.PNG" id="4_ya4yr"]
 [ext_resource type="Texture2D" uid="uid://cdtt8xf2hin0" path="res://Guitar/A_string.PNG" id="5_oyp2h"]
 [ext_resource type="Texture2D" uid="uid://boga4rcrh1262" path="res://Guitar/D_string.PNG" id="6_vl0ly"]
 [ext_resource type="Texture2D" uid="uid://cwm2xtftv41xu" path="res://Guitar/G_string.PNG" id="7_37cix"]
+[ext_resource type="AudioStream" uid="uid://cj8vnikmoy7i1" path="res://Music/batorial.mp3" id="8_qo688"]
 
 [sub_resource type="Curve2D" id="Curve2D_jhvdf"]
 _data = {
@@ -104,4 +104,10 @@ texture = ExtResource("7_37cix")
 polygon = PackedVector2Array(212, 650, 421, 1054, 392, 1068, 185, 665)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1933253156]
-stream = ExtResource("3_pdyvf")
+stream = ExtResource("8_qo688")
+autoplay = true
+
+[node name="delay timer" type="Timer" parent="." unique_id=465550730]
+
+[node name="beat timer" type="Timer" parent="." unique_id=169268403]
+wait_time = 0.25

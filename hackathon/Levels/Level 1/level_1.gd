@@ -1,4 +1,6 @@
 extends Node2D
+@onready var timer2: Timer = $"delay timer"
+@onready var timer1: Timer = $"beat timer"
 @onready var BString: Path2D = $BString
 @onready var EString: Path2D = $EString
 @onready var AString: Path2D = $AString
@@ -13,6 +15,26 @@ func _ready() -> void:
 	GlobalStrings.AString = AString
 	GlobalStrings.DString = DString
 	GlobalStrings.GString = GString
+	timer2.start(2.27)
+	await timer2.timeout
+	GlobalStrings.createAnote()
+	timer1.start(2)
+	await timer1.timeout
+	GlobalStrings.createAnote()
+	timer1.start(2)
+	await timer1.timeout
+	GlobalStrings.createAnote()
+	timer1.start(1)
+	await timer1.timeout
+	GlobalStrings.createAnote()
+	timer1.start(1)
+	await timer1.timeout
+	GlobalStrings.createAnote()
+	timer1.start(2)
+	await timer1.timeout
+	GlobalStrings.createBnote()
+
+
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("Strum"):
@@ -21,9 +43,14 @@ func _physics_process(delta: float) -> void:
 		GlobalStrings.createAnote()
 		GlobalStrings.createDnote()
 		GlobalStrings.createGnote()
+
+		
 		
 	for note in activenotes:
 		note.progress_ratio += delta / 2
 		if note.progress_ratio >= 0.9999:
 			activenotes.erase(note)
 			note.queue_free()
+
+func _on_timer_timeout() -> void:
+	pass # Replace with function body.
