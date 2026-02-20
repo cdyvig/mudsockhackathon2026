@@ -111,3 +111,34 @@ autoplay = true
 
 [node name="beats" type="Timer" parent="." unique_id=169268403]
 wait_time = 0.25
+
+[node name="PauseButton" type="Button" parent="." unique_id=1047548950]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 208.0
+offset_bottom = 126.0
+theme_override_font_sizes/font_size = 32
+text = "Pause"
+
+[node name="UnpauseButton" type="Button" parent="." unique_id=1472098417]
+visible = false
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 204.0
+offset_bottom = 126.0
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 32
+text = "Unpause"
+
+[node name="BackButton" type="Button" parent="." unique_id=876444979]
+visible = false
+offset_left = 16.0
+offset_top = 144.0
+offset_right = 207.0
+offset_bottom = 258.0
+theme_override_font_sizes/font_size = 32
+text = "Back"
+
+[connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="pressed" from="UnpauseButton" to="." method="_on_unpause_button_pressed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

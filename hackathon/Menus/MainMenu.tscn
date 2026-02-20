@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ghqw7tgmu4b5"]
 
 [ext_resource type="Script" uid="uid://hhc8kvp13110" path="res://Menus/main_menu.gd" id="1_3g7qx"]
+[ext_resource type="Texture2D" uid="uid://q3d88w4bt3qd" path="res://Menus/TitleCard.PNG" id="2_r8dbq"]
 
 [node name="Menus" type="Node" unique_id=143270072]
 
@@ -9,16 +10,65 @@ script = ExtResource("1_3g7qx")
 
 [node name="ColorRect" type="ColorRect" parent="MainMenu" unique_id=41045285]
 custom_minimum_size = Vector2(1920, 1080)
-color = Color(0.8304341, 0.68401027, 0.51294774, 1)
+color = Color(0.5259492, 0.7496715, 0.844839, 1)
 metadata/_edit_use_anchors_ = true
 
+[node name="TitleCard" type="TextureRect" parent="MainMenu" unique_id=1720906850]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_r8dbq")
+
 [node name="StartButton" type="Button" parent="MainMenu" unique_id=1874249547]
-offset_left = 640.0
-offset_top = 100.0
-offset_right = 1281.0
-offset_bottom = 278.0
+offset_left = 624.0
+offset_top = 784.0
+offset_right = 1265.0
+offset_bottom = 962.0
 theme_override_font_sizes/font_size = 124
 text = "Play Game"
 flat = true
 
+[node name="Level1Start" type="Button" parent="MainMenu" unique_id=1989180494]
+visible = false
+offset_left = 96.0
+offset_top = 752.0
+offset_right = 437.0
+offset_bottom = 936.0
+theme_override_font_sizes/font_size = 64
+text = "Level 1: 
+BA"
+
+[node name="Level2Start" type="Button" parent="MainMenu" unique_id=709240758]
+visible = false
+offset_left = 548.0
+offset_top = 752.0
+offset_right = 889.0
+offset_bottom = 936.0
+theme_override_font_sizes/font_size = 64
+text = "Level 2:
+BAD"
+
+[node name="Level3Start" type="Button" parent="MainMenu" unique_id=472628572]
+visible = false
+offset_left = 1016.0
+offset_top = 752.0
+offset_right = 1357.0
+offset_bottom = 936.0
+theme_override_font_sizes/font_size = 64
+text = "Level 3: 
+BADGE"
+
+[node name="Level4Start" type="Button" parent="MainMenu" unique_id=1266468020]
+visible = false
+offset_left = 1456.0
+offset_top = 752.0
+offset_right = 1797.0
+offset_bottom = 936.0
+theme_override_font_sizes/font_size = 64
+text = "Level 4: 
+BADGERS"
+
 [connection signal="pressed" from="MainMenu/StartButton" to="MainMenu" method="_on_start_button_pressed"]
+[connection signal="pressed" from="MainMenu/Level1Start" to="MainMenu" method="_on_level_1_start_pressed"]
+[connection signal="pressed" from="MainMenu/Level2Start" to="MainMenu" method="_on_level_2_start_pressed"]
+[connection signal="pressed" from="MainMenu/Level3Start" to="MainMenu" method="_on_level_3_start_pressed"]
+[connection signal="pressed" from="MainMenu/Level4Start" to="MainMenu" method="_on_level_4_start_pressed"]
