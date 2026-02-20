@@ -109,5 +109,5 @@ autoplay = true
 
 [node name="delay timer" type="Timer" parent="." unique_id=465550730]
 
-[node name="beats" type="Timer" parent="." unique_id=169268403]
+[node name="beat timer" type="Timer" parent="." unique_id=169268403]
 wait_time = 0.25

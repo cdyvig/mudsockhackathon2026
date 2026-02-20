@@ -1,6 +1,6 @@
 extends Node2D
 @onready var timer2: Timer = $"delay timer"
-@onready var timer1: Timer = $beats
+@onready var timer1: Timer = $"beat timer"
 @onready var BString: Path2D = $BString
 @onready var EString: Path2D = $EString
 @onready var AString: Path2D = $AString
@@ -18,71 +18,240 @@ func _ready() -> void:
 	timer2.start(2.29)
 	await timer2.timeout
 	GlobalStrings.createBnote()
-	timer1.start(.5)
-	await timer2.timeout
+	timer1.start(.25)
+	await timer1.timeout
 	GlobalStrings.createDnote()
 	timer1.start(.5)
-	await timer2.timeout
+	await timer1.timeout
 	GlobalStrings.createAnote()
 	timer1.start(.25)
-	await timer2.timeout
+	await timer1.timeout
 	GlobalStrings.createAnote()
 	timer1.start(.5)
-	await timer2.timeout
+	await timer1.timeout
 	GlobalStrings.createAnote()
 	timer1.start(.25)
-	await timer2.timeout
+	await timer1.timeout
 	GlobalStrings.createBnote()
 	timer1.start(1.5)
-	await timer2.timeout
+	await timer1.timeout
 	GlobalStrings.createAnote()
 	timer1.start(.5)
-	await timer2.timeout
+	await timer1.timeout
 	GlobalStrings.createDnote()
 	timer1.start(.5)
-	await timer2.timeout
+	await timer1.timeout
 	GlobalStrings.createAnote()
 	timer1.start(.25)
-	await timer2.timeout
+	await timer1.timeout
 	GlobalStrings.createBnote()
 	timer1.start(.25)
-	await timer2.timeout
+	await timer1.timeout
 	GlobalStrings.createBnote()
 	timer1.start(.5)
-	await timer2.timeout
+	await timer1.timeout
 	GlobalStrings.createDnote()
 	timer1.start(.5)
-	await timer2.timeout
+	await timer1.timeout
 	GlobalStrings.createBnote()
 	timer1.start(1)
-	await timer2.timeout
+	await timer1.timeout
 	GlobalStrings.createAnote()
 	timer1.start(.25)
-	await timer2.timeout
+	await timer1.timeout
 	GlobalStrings.createBnote()
 	timer1.start(.25)
-	await timer2.timeout
+	await timer1.timeout
 	GlobalStrings.createDnote()
 	timer1.start(.25)
-	await timer2.timeout
+	await timer1.timeout
 	GlobalStrings.createBnote()
 	timer1.start(.25)
-	await timer2.timeout
+	await timer1.timeout
 	GlobalStrings.createAnote()
 	timer1.start(1.5)
-	await timer2.timeout
+	await timer1.timeout
 	GlobalStrings.createBnote()
 	timer1.start(.25)
-	await timer2.timeout
+	await timer1.timeout
 	GlobalStrings.createDnote()
 	timer1.start(.25)
-	await timer2.timeout
+	await timer1.timeout
 	GlobalStrings.createBnote()
 	timer1.start(1.5)
-	await timer2.timeout
-	
-	
-	
+	await timer1.timeout
+	GlobalStrings.createAnote()
+	timer1.start(.5)
+	await timer1.timeout
+	GlobalStrings.createBnote()
+	timer1.start(.25)
+	await timer1.timeout
+	GlobalStrings.createBnote()
+	timer1.start(.5)
+	await timer1.timeout
+	GlobalStrings.createBnote()
+	timer1.start(.5)
+	await timer1.timeout
+	GlobalStrings.createBnote()
+	timer1.start(.5)
+	await timer1.timeout
+	GlobalStrings.createBnote()
+	timer1.start(.25)
+	await timer1.timeout
+	GlobalStrings.createDnote()
+	timer1.start(.25)
+	await timer1.timeout
+	GlobalStrings.createDnote()
+	timer1.start(.5)
+	await timer1.timeout
+	GlobalStrings.createDnote()
+	timer1.start(.5)
+	await timer1.timeout
+	GlobalStrings.createDnote()
+	timer1.start(.5)
+	await timer1.timeout
+	GlobalStrings.createDnote()
+	timer1.start(.25)
+	await timer1.timeout
+	GlobalStrings.createAnote()
+	timer1.start(.25)
+	await timer1.timeout
+	GlobalStrings.createBnote()
+	timer1.start(.5)
+	await timer1.timeout
+	GlobalStrings.createAnote()
+	timer1.start(.5)
+	await timer1.timeout
+	GlobalStrings.createDnote()
+	timer1.start(.5)
+	await timer1.timeout
+	GlobalStrings.createAnote()
+	timer1.start(.25)
+	await timer1.timeout
+	GlobalStrings.createAnote()
+	timer1.start(.25)
+	await timer1.timeout
+	GlobalStrings.createDnote()
+	timer1.start(.5)
+	await timer1.timeout
+	GlobalStrings.createAnote()
+	timer1.start(.5)
+	await timer1.timeout
+	GlobalStrings.createBnote()
+	timer1.start(.5)
+	await timer1.timeout
+	GlobalStrings.createAnote()
+	timer1.start(.25)
+	await timer1.timeout
+	GlobalStrings.createBnote()
+	timer1.start(.25)
+	await timer1.timeout
+	GlobalStrings.createBnote()
+	timer1.start(.5)
+	await timer1.timeout
+	GlobalStrings.createBnote()
+	timer1.start(.5)
+	await timer1.timeout
+	GlobalStrings.createBnote()
+	timer1.start(.5)
+	await timer1.timeout
+	GlobalStrings.createBnote()
+	timer1.start(.25)
+	await timer1.timeout
+	GlobalStrings.createDnote()
+	timer1.start(.25)
+	await timer1.timeout
+	GlobalStrings.createDnote()
+	timer1.start(.5)
+	await timer1.timeout
+	GlobalStrings.createDnote()
+	timer1.start(.5)
+	await timer1.timeout
+	GlobalStrings.createDnote()
+	timer1.start(.5)
+	await timer1.timeout
+	GlobalStrings.createDnote()
+	timer1.start(.25)
+	await timer1.timeout
+	GlobalStrings.createAnote()
+	timer1.start(.25)
+	await timer1.timeout
+	GlobalStrings.createBnote()
+	timer1.start(.5)
+	await timer1.timeout
+	GlobalStrings.createAnote()
+	timer1.start(.5)
+	await timer1.timeout
+	GlobalStrings.createDnote()
+	timer1.start(.5)
+	await timer1.timeout
+	GlobalStrings.createAnote()
+	timer1.start(.25)
+	await timer1.timeout
+	GlobalStrings.createAnote()
+	timer1.start(.25)
+	await timer1.timeout
+	GlobalStrings.createDnote()
+	timer1.start(.5)
+	await timer1.timeout
+	GlobalStrings.createAnote()
+	timer1.start(.5)
+	await timer1.timeout
+	GlobalStrings.createBnote()
+	timer1.start(.5)
+	await timer1.timeout
+	GlobalStrings.createAnote()
+	timer1.start(.25)
+	await timer1.timeout
+	GlobalStrings.createBnote()
+	timer1.start(.25)
+	await timer1.timeout
+	GlobalStrings.createAnote()
+	timer1.start(.25)
+	await timer1.timeout
+	GlobalStrings.createBnote()
+	timer1.start(.25)
+	await timer1.timeout
+	GlobalStrings.createAnote()
+	timer1.start(.25)
+	await timer1.timeout
+	GlobalStrings.createDnote()
+	timer1.start(.25)
+	await timer1.timeout
+	GlobalStrings.createBnote()
+	timer1.start(.25)
+	await timer1.timeout
+	GlobalStrings.createDnote()
+	timer1.start(.25)
+	await timer1.timeout
+	GlobalStrings.createBnote()
+	timer1.start(.25)
+	await timer1.timeout
+	GlobalStrings.createAnote()
+	timer1.start(.25)
+	await timer1.timeout
+	GlobalStrings.createAnote()
+	timer1.start(.5)
+	await timer1.timeout
+	GlobalStrings.createAnote()
+	timer1.start(.25)
+	await timer1.timeout
+	GlobalStrings.createBnote()
+	timer1.start(.25)
+	await timer1.timeout
+	GlobalStrings.createBnote()
+	timer1.start(.5)
+	await timer1.timeout
+	GlobalStrings.createBnote()
+	timer1.start(.25)
+	await timer1.timeout
+	GlobalStrings.createDnote()
+	timer1.start(.25)
+	await timer1.timeout
+	GlobalStrings.createBnote()
+	timer1.start(.25)
+	await timer1.timeout
+	GlobalStrings.createBnote()
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("Strum"):
