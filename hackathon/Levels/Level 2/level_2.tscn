@@ -1,0 +1,113 @@
+[gd_scene format=3 uid="uid://bp7icxrxdctes"]
+
+[ext_resource type="Script" uid="uid://cf0ia5ev20vjc" path="res://Levels/Level 2/level_2.gd" id="1_mufmk"]
+[ext_resource type="Texture2D" uid="uid://dg8abllqywpmq" path="res://Guitar/guitar_base.PNG" id="2_wfiis"]
+[ext_resource type="Texture2D" uid="uid://dfq51a6pt5y1k" path="res://Guitar/B_string.PNG" id="3_hxgna"]
+[ext_resource type="Texture2D" uid="uid://dtwfhlvcr14lu" path="res://Guitar/E_string.PNG" id="4_26o3n"]
+[ext_resource type="Texture2D" uid="uid://cdtt8xf2hin0" path="res://Guitar/A_string.PNG" id="5_8nn6k"]
+[ext_resource type="Texture2D" uid="uid://boga4rcrh1262" path="res://Guitar/D_string.PNG" id="6_5ljhn"]
+[ext_resource type="Texture2D" uid="uid://cwm2xtftv41xu" path="res://Guitar/G_string.PNG" id="7_vkr56"]
+[ext_resource type="AudioStream" uid="uid://u0janu6iu38h" path="res://Music/BAD.mp3" id="8_wfiis"]
+
+[sub_resource type="Curve2D" id="Curve2D_jhvdf"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1938.7792, -131.99998, 0, 0, 0, 0, -66.85446, 873.7141)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_5m51o"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1920, -22, 0, 0, 0, 0, -2, 928)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_i454g"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1920, 72, 0, 0, 0, 0, 0, 1022)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_pdyvf"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1920, 157, 0, 0, 0, 0, 0, 1106)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_c2j31"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1920, 234, 0, 0, 0, 0, 0, 1182)
+}
+point_count = 2
+
+[node name="Level2" type="Node2D" unique_id=523294324]
+script = ExtResource("1_mufmk")
+
+[node name="GuitarBase" type="TextureRect" parent="." unique_id=85126737]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_wfiis")
+
+[node name="BString" type="Path2D" parent="." unique_id=729534429]
+position = Vector2(64, 12.999998)
+scale = Vector2(0.9573034, 0.95454556)
+curve = SubResource("Curve2D_jhvdf")
+
+[node name="BStr" type="TextureRect" parent="BString" unique_id=1252705614]
+offset_left = -66.854454
+offset_top = -13.619044
+offset_right = 1929.4014
+offset_bottom = 1129.3331
+texture = ExtResource("3_hxgna")
+
+[node name="EString" type="Path2D" parent="." unique_id=1042125965]
+curve = SubResource("Curve2D_5m51o")
+
+[node name="EStr" type="TextureRect" parent="EString" unique_id=1631306575]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("4_26o3n")
+
+[node name="AString" type="Path2D" parent="." unique_id=336530230]
+curve = SubResource("Curve2D_i454g")
+
+[node name="AStr" type="TextureRect" parent="AString" unique_id=343223685]
+offset_left = -8.0
+offset_right = 1920.0
+offset_bottom = 1085.0
+texture = ExtResource("5_8nn6k")
+
+[node name="DString" type="Path2D" parent="." unique_id=1453732659]
+position = Vector2(52, -26)
+curve = SubResource("Curve2D_pdyvf")
+
+[node name="DStr" type="TextureRect" parent="DString" unique_id=1909984037]
+offset_left = -52.0
+offset_top = 26.0
+offset_right = 1868.0
+offset_bottom = 1106.0
+texture = ExtResource("6_5ljhn")
+
+[node name="GString" type="Path2D" parent="." unique_id=507685775]
+position = Vector2(206, -102)
+curve = SubResource("Curve2D_c2j31")
+
+[node name="GStr" type="TextureRect" parent="GString" unique_id=836439260]
+offset_left = -206.0
+offset_top = 102.0
+offset_right = 1714.0
+offset_bottom = 1182.0
+texture = ExtResource("7_vkr56")
+
+[node name="StrumArea" type="Area2D" parent="." unique_id=1663987056]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StrumArea" unique_id=1164405081]
+polygon = PackedVector2Array(212, 650, 421, 1054, 392, 1068, 185, 665)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1933253156]
+stream = ExtResource("8_wfiis")
+autoplay = true
+
+[node name="delay timer" type="Timer" parent="." unique_id=465550730]
+
+[node name="beats" type="Timer" parent="." unique_id=169268403]
+wait_time = 0.25
