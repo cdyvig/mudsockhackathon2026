@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cwm2xtftv41xu" path="res://Guitar/G_string.PNG" id="7_37cix"]
 [ext_resource type="AudioStream" uid="uid://cj8vnikmoy7i1" path="res://Music/batorial.mp3" id="8_qo688"]
 [ext_resource type="Script" uid="uid://ca2xq2008pmdv" path="res://Levels/Level 1/hit_bar_a.gd" id="9_es52h"]
+[ext_resource type="Texture2D" uid="uid://djc7uggeo4jjw" path="res://Icons/ScoreDisplay.PNG" id="10_ya4yr"]
 
 [sub_resource type="Curve2D" id="Curve2D_jhvdf"]
 _data = {
@@ -183,6 +184,34 @@ offset_right = 207.0
 offset_bottom = 254.0
 theme_override_font_sizes/font_size = 32
 text = "Back"
+
+[node name="HitTimer1" type="Timer" parent="." unique_id=185584099]
+
+[node name="ScoreDisplay" type="TextureRect" parent="." unique_id=1439489185]
+z_index = -1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 1411.0
+offset_top = 477.0
+offset_right = 1911.0
+offset_bottom = 1077.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("10_ya4yr")
+
+[node name="ScoreLabel" type="Label" parent="." unique_id=2128801215]
+offset_left = 1551.0
+offset_top = 596.0
+offset_right = 1847.0
+offset_bottom = 764.0
+rotation = -0.06981317
+theme_override_font_sizes/font_size = 64
+text = "0 / 0"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="UnpauseButton" to="." method="_on_unpause_button_pressed"]

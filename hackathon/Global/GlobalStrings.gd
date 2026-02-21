@@ -11,7 +11,9 @@ var active_notes: Array[PathFollow2D] = []
 var hits: int = 0
 var misses: int = 0
 var total: int = 0
+var hit_timer: Timer = Timer.new()
 
+#scoring
 func reset_score() -> void:
 	hits = 0
 	misses = 0
@@ -22,10 +24,12 @@ func register_spawn() -> void:
 
 func register_hit() -> void:
 	hits += 1
+	hit_timer.start(0.5)
 
 func register_miss() -> void:
 	misses += 1
 
+#notes
 func _make_note(parent_path: Path2D, texture_path: String, action_name: String, start_progress: float) -> void:
 	if parent_path == null:
 		return
