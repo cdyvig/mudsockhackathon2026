@@ -236,33 +236,6 @@ position = Vector2(306, 862)
 rotation = 2.645919
 shape = SubResource("RectangleShape2D_0lkno")
 
-[node name="PauseButton2" type="Button" parent="." unique_id=1119387969]
-offset_left = 16.0
-offset_top = 16.0
-offset_right = 208.0
-offset_bottom = 126.0
-theme_override_font_sizes/font_size = 32
-text = "Pause"
-
-[node name="UnpauseButton2" type="Button" parent="." unique_id=1860716513]
-visible = false
-offset_left = 16.0
-offset_top = 16.0
-offset_right = 204.0
-offset_bottom = 126.0
-size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 32
-text = "Unpause"
-
-[node name="BackButton2" type="Button" parent="." unique_id=854085149]
-visible = false
-offset_left = 16.0
-offset_top = 140.0
-offset_right = 207.0
-offset_bottom = 254.0
-theme_override_font_sizes/font_size = 32
-text = "Back"
-
 [node name="HitTimer1" type="Timer" parent="." unique_id=1643194016]
 
 [node name="ScoreDisplay" type="TextureRect" parent="." unique_id=789522618]
@@ -324,6 +297,3 @@ vertical_alignment = 1
 [connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="UnpauseButton" to="." method="_on_unpause_button_pressed"]
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
-[connection signal="pressed" from="PauseButton2" to="." method="_on_pause_button_2_pressed"]
-[connection signal="pressed" from="UnpauseButton2" to="." method="_on_unpause_button_2_pressed"]
-[connection signal="pressed" from="BackButton2" to="." method="_on_back_button_2_pressed"]

@@ -179,8 +179,8 @@ func _switch_to_end_score_ui() -> void:
 
 func _on_pause_button_pressed() -> void:
 	get_tree().paused = true
-	$UnpauseButton.show()
 	$PauseButton.hide()
+	$UnpauseButton.show()
 	$BackButton.show()
 
 
