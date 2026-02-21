@@ -41,12 +41,12 @@ func run_chart() -> void:
 	GlobalStrings.createAnote()
 
 	timer1.start(2);   await timer1.timeout; GlobalStrings.createAnote()
-	timer1.start(2);   await timer1.timeout; GlobalStrings.createAnote()
+	timer1.start(1.9);   await timer1.timeout; GlobalStrings.createAnote()
 	timer1.start(1);   await timer1.timeout; GlobalStrings.createAnote()
 	timer1.start(1);   await timer1.timeout; GlobalStrings.createAnote()
 
 	timer1.start(2);   await timer1.timeout; GlobalStrings.createBnote()
-	timer1.start(2);   await timer1.timeout; GlobalStrings.createBnote()
+	timer1.start(1.9);   await timer1.timeout; GlobalStrings.createBnote()
 	timer1.start(2);   await timer1.timeout; GlobalStrings.createBnote()
 	timer1.start(1);   await timer1.timeout; GlobalStrings.createBnote()
 	timer1.start(1);   await timer1.timeout; GlobalStrings.createBnote()
@@ -60,7 +60,7 @@ func run_chart() -> void:
 	timer1.start(0.5); await timer1.timeout; GlobalStrings.createBnote()
 	timer1.start(0.5); await timer1.timeout; GlobalStrings.createAnote()
 	timer1.start(0.5); await timer1.timeout; GlobalStrings.createBnote()
-	timer1.start(0.5); await timer1.timeout; GlobalStrings.createAnote()
+	timer1.start(0.4); await timer1.timeout; GlobalStrings.createAnote()
 
 	timer1.start(0.25); await timer1.timeout; GlobalStrings.createBnote()
 	timer1.start(0.25); await timer1.timeout; GlobalStrings.createAnote()
@@ -70,7 +70,7 @@ func run_chart() -> void:
 	timer1.start(0.25); await timer1.timeout; GlobalStrings.createAnote()
 	timer1.start(0.25); await timer1.timeout; GlobalStrings.createBnote()
 	timer1.start(0.25); await timer1.timeout; GlobalStrings.createAnote()
-
+	timer1.start(5); await timer1.timeout;
 	chart_done = true
 
 func _physics_process(delta: float) -> void:

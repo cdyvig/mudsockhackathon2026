@@ -74,7 +74,7 @@ func _ready() -> void:
 	timer1.start(.25)
 	await timer1.timeout
 	GlobalStrings.createAnote()
-	timer1.start(1.5)
+	timer1.start(1.4)
 	await timer1.timeout
 	GlobalStrings.createBnote()
 	timer1.start(.25)
@@ -83,13 +83,16 @@ func _ready() -> void:
 	timer1.start(.25)
 	await timer1.timeout
 	GlobalStrings.createBnote()
-	timer1.start(1.5)
+	timer1.start(1.4)
 	await timer1.timeout
 	GlobalStrings.createAnote()
 	timer1.start(.5)
 	await timer1.timeout
 	GlobalStrings.createBnote()
-	timer1.start(.25)
+	timer1.start(.24)
+	await timer1.timeout
+	GlobalStrings.createBnote()
+	timer1.start(.4)
 	await timer1.timeout
 	GlobalStrings.createBnote()
 	timer1.start(.5)
@@ -98,76 +101,13 @@ func _ready() -> void:
 	timer1.start(.5)
 	await timer1.timeout
 	GlobalStrings.createBnote()
-	timer1.start(.5)
-	await timer1.timeout
-	GlobalStrings.createBnote()
-	timer1.start(.25)
+	timer1.start(.24)
 	await timer1.timeout
 	GlobalStrings.createDnote()
 	timer1.start(.25)
 	await timer1.timeout
 	GlobalStrings.createDnote()
-	timer1.start(.5)
-	await timer1.timeout
-	GlobalStrings.createDnote()
-	timer1.start(.5)
-	await timer1.timeout
-	GlobalStrings.createDnote()
-	timer1.start(.5)
-	await timer1.timeout
-	GlobalStrings.createDnote()
-	timer1.start(.25)
-	await timer1.timeout
-	GlobalStrings.createAnote()
-	timer1.start(.25)
-	await timer1.timeout
-	GlobalStrings.createBnote()
-	timer1.start(.5)
-	await timer1.timeout
-	GlobalStrings.createAnote()
-	timer1.start(.5)
-	await timer1.timeout
-	GlobalStrings.createDnote()
-	timer1.start(.5)
-	await timer1.timeout
-	GlobalStrings.createAnote()
-	timer1.start(.25)
-	await timer1.timeout
-	GlobalStrings.createAnote()
-	timer1.start(.25)
-	await timer1.timeout
-	GlobalStrings.createDnote()
-	timer1.start(.5)
-	await timer1.timeout
-	GlobalStrings.createAnote()
-	timer1.start(.5)
-	await timer1.timeout
-	GlobalStrings.createBnote()
-	timer1.start(.5)
-	await timer1.timeout
-	GlobalStrings.createAnote()
-	timer1.start(.25)
-	await timer1.timeout
-	GlobalStrings.createBnote()
-	timer1.start(.25)
-	await timer1.timeout
-	GlobalStrings.createBnote()
-	timer1.start(.5)
-	await timer1.timeout
-	GlobalStrings.createBnote()
-	timer1.start(.5)
-	await timer1.timeout
-	GlobalStrings.createBnote()
-	timer1.start(.5)
-	await timer1.timeout
-	GlobalStrings.createBnote()
-	timer1.start(.25)
-	await timer1.timeout
-	GlobalStrings.createDnote()
-	timer1.start(.25)
-	await timer1.timeout
-	GlobalStrings.createDnote()
-	timer1.start(.5)
+	timer1.start(.4)
 	await timer1.timeout
 	GlobalStrings.createDnote()
 	timer1.start(.5)
@@ -182,7 +122,67 @@ func _ready() -> void:
 	timer1.start(.25)
 	await timer1.timeout
 	GlobalStrings.createBnote()
+	timer1.start(.4)
+	await timer1.timeout
+	GlobalStrings.createAnote()
 	timer1.start(.5)
+	await timer1.timeout
+	GlobalStrings.createDnote()
+	timer1.start(.5)
+	await timer1.timeout
+	GlobalStrings.createAnote()
+	timer1.start(.25)
+	await timer1.timeout
+	GlobalStrings.createAnote()
+	timer1.start(.25)
+	await timer1.timeout
+	GlobalStrings.createDnote()
+	timer1.start(.4)
+	await timer1.timeout
+	GlobalStrings.createAnote()
+	timer1.start(.5)
+	await timer1.timeout
+	GlobalStrings.createBnote()
+	timer1.start(.4)
+	await timer1.timeout
+	GlobalStrings.createAnote()
+	timer1.start(.25)
+	await timer1.timeout
+	GlobalStrings.createBnote()
+	timer1.start(.25)
+	await timer1.timeout
+	GlobalStrings.createBnote()
+	timer1.start(.5)
+	await timer1.timeout
+	GlobalStrings.createBnote()
+	timer1.start(.4)
+	await timer1.timeout
+	GlobalStrings.createBnote()
+	timer1.start(.5)
+	await timer1.timeout
+	GlobalStrings.createBnote()
+	timer1.start(.25)
+	await timer1.timeout
+	GlobalStrings.createDnote()
+	timer1.start(.25)
+	await timer1.timeout
+	GlobalStrings.createDnote()
+	timer1.start(.5)
+	await timer1.timeout
+	GlobalStrings.createDnote()
+	timer1.start(.4)
+	await timer1.timeout
+	GlobalStrings.createDnote()
+	timer1.start(.5)
+	await timer1.timeout
+	GlobalStrings.createDnote()
+	timer1.start(.25)
+	await timer1.timeout
+	GlobalStrings.createAnote()
+	timer1.start(.25)
+	await timer1.timeout
+	GlobalStrings.createBnote()
+	timer1.start(.4)
 	await timer1.timeout
 	GlobalStrings.createAnote()
 	timer1.start(.5)
@@ -200,7 +200,7 @@ func _ready() -> void:
 	timer1.start(.5)
 	await timer1.timeout
 	GlobalStrings.createAnote()
-	timer1.start(.5)
+	timer1.start(.4)
 	await timer1.timeout
 	GlobalStrings.createBnote()
 	timer1.start(.5)
@@ -221,10 +221,10 @@ func _ready() -> void:
 	timer1.start(.25)
 	await timer1.timeout
 	GlobalStrings.createDnote()
-	timer1.start(.25)
+	timer1.start(.24)
 	await timer1.timeout
 	GlobalStrings.createBnote()
-	timer1.start(.25)
+	timer1.start(.24)
 	await timer1.timeout
 	GlobalStrings.createDnote()
 	timer1.start(.25)
@@ -233,10 +233,10 @@ func _ready() -> void:
 	timer1.start(.25)
 	await timer1.timeout
 	GlobalStrings.createAnote()
-	timer1.start(.25)
+	timer1.start(.24)
 	await timer1.timeout
 	GlobalStrings.createAnote()
-	timer1.start(.5)
+	timer1.start(.4)
 	await timer1.timeout
 	GlobalStrings.createAnote()
 	timer1.start(.25)
@@ -248,7 +248,7 @@ func _ready() -> void:
 	timer1.start(.5)
 	await timer1.timeout
 	GlobalStrings.createBnote()
-	timer1.start(.25)
+	timer1.start(.24)
 	await timer1.timeout
 	GlobalStrings.createDnote()
 	timer1.start(.25)
