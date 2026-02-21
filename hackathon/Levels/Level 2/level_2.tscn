@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bp7icxrxdctes"]
 
 [ext_resource type="Script" uid="uid://cf0ia5ev20vjc" path="res://Levels/Level 2/level_2.gd" id="1_mufmk"]
+[ext_resource type="Texture2D" uid="uid://b0j783w71vm5b" path="res://Guitar/Backgound.PNG" id="2_hxgna"]
 [ext_resource type="Texture2D" uid="uid://dg8abllqywpmq" path="res://Guitar/guitar_base.PNG" id="2_wfiis"]
 [ext_resource type="Texture2D" uid="uid://dfq51a6pt5y1k" path="res://Guitar/B_string.PNG" id="3_hxgna"]
 [ext_resource type="Texture2D" uid="uid://dtwfhlvcr14lu" path="res://Guitar/E_string.PNG" id="4_26o3n"]
@@ -8,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://boga4rcrh1262" path="res://Guitar/D_string.PNG" id="6_5ljhn"]
 [ext_resource type="Texture2D" uid="uid://cwm2xtftv41xu" path="res://Guitar/G_string.PNG" id="7_vkr56"]
 [ext_resource type="AudioStream" uid="uid://u0janu6iu38h" path="res://Music/BAD.mp3" id="8_wfiis"]
+[ext_resource type="Texture2D" uid="uid://djc7uggeo4jjw" path="res://Icons/ScoreDisplay.PNG" id="9_wfiis"]
 
 [sub_resource type="Curve2D" id="Curve2D_jhvdf"]
 _data = {
@@ -41,6 +43,12 @@ point_count = 2
 
 [node name="Level2" type="Node2D" unique_id=523294324]
 script = ExtResource("1_mufmk")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1631633374]
+z_index = -1
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_hxgna")
 
 [node name="GuitarBase" type="TextureRect" parent="." unique_id=85126737]
 offset_right = 1920.0
@@ -138,6 +146,34 @@ offset_right = 207.0
 offset_bottom = 258.0
 theme_override_font_sizes/font_size = 32
 text = "Back"
+
+[node name="HitTimer1" type="Timer" parent="." unique_id=579160140]
+
+[node name="ScoreDisplay" type="TextureRect" parent="." unique_id=1140212786]
+z_index = -1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 1411.0
+offset_top = 477.0
+offset_right = 1911.0
+offset_bottom = 1077.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("9_wfiis")
+
+[node name="ScoreLabel" type="Label" parent="." unique_id=883728492]
+offset_left = 1551.0
+offset_top = 596.0
+offset_right = 1847.0
+offset_bottom = 764.0
+rotation = -0.06981317
+theme_override_font_sizes/font_size = 64
+text = "0 / 0"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="UnpauseButton" to="." method="_on_unpause_button_pressed"]

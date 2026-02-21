@@ -6,8 +6,13 @@ extends Node2D
 @onready var AString: Path2D = $AString
 @onready var DString: Path2D = $DString
 @onready var GString: Path2D = $GString
+@onready var score_label: Label = $ScoreLabel
+
 var activenotes = GlobalStrings.active_notes
 var bpm = 120
+
+var chart_done := false
+var end_triggered := false
 
 func _ready() -> void:
 	GlobalStrings.BString = BString
@@ -275,8 +280,18 @@ func _physics_process(delta: float) -> void:
 		note.progress_ratio += delta / 2
 		
 		if note.progress_ratio >= 0.9999:
-			activenotes.erase(note)
+			GlobalStrings.register_miss()
+			GlobalStrings.active_notes.erase(note)
 			note.queue_free()
+
+func _process(_delta: float) -> void:
+	# go to end screen when chart is done and no notes left
+	if not end_triggered and chart_done and GlobalStrings.active_notes.size() == 0:
+		end_triggered = true
+		get_tree().change_scene_to_file("res://Menus/EndScreen.tscn")
+		
+	#update score
+	score_label.text = str(GlobalStrings.hits) + " / " + str(GlobalStrings.hits + GlobalStrings.misses)
 
 func _on_timer_timeout() -> void:
 	pass # Replace with function body.

@@ -9,6 +9,8 @@ extends Node2D
 @onready var DString: Path2D = $DString
 @onready var GString: Path2D = $GString
 
+@onready var score_label: Label = $ScoreLabel
+
 var chart_done := false
 var end_triggered := false
 
@@ -116,6 +118,8 @@ func _process(_delta: float) -> void:
 	if not end_triggered and chart_done and GlobalStrings.active_notes.size() == 0:
 		end_triggered = true
 		get_tree().change_scene_to_file("res://Menus/EndScreen.tscn")
+	
+	score_label.text = str(GlobalStrings.hits) + " / " + str(GlobalStrings.hits + GlobalStrings.misses)
 
 #menu buttons
 func _on_pause_button_pressed() -> void:
