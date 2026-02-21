@@ -1,19 +1,25 @@
 extends Node
 
+
 var BString: Path2D
 var EString: Path2D
 var AString: Path2D
 var DString: Path2D
 var GString: Path2D
 
+# notes currently alive
 var active_notes: Array[PathFollow2D] = []
 
+# scoring
 var hits: int = 0
 var misses: int = 0
 var total: int = 0
-var hit_timer: Timer = Timer.new()
 
-#scoring
+# end screen routing (set by each level)
+var last_level: int = 0
+var retry_level_path: String = ""
+var next_level_path: String = ""  # can be "" if no next level
+
 func reset_score() -> void:
 	hits = 0
 	misses = 0
@@ -24,23 +30,28 @@ func register_spawn() -> void:
 
 func register_hit() -> void:
 	hits += 1
-	hit_timer.start(0.5)
 
 func register_miss() -> void:
 	misses += 1
 
-#notes
-func _make_note(parent_path: Path2D, texture_path: String, action_name: String, start_progress: float) -> void:
+func accuracy() -> float:
+	if total <= 0:
+		return 0.0
+	return float(hits) / float(total)
+
+# NOTE SPAWNER
+func _make_note(parent_path: Path2D, texture_path: String, action_name: String) -> void:
 	if parent_path == null:
 		return
 
 	var path := PathFollow2D.new()
 	path.loop = false
-	path.progress = start_progress
+	path.progress = 0
 
 	var area := Area2D.new()
 	area.monitoring = true
 	area.add_to_group("notes")
+	area.set_meta("action_name", action_name)
 
 	var hitbox := CollisionShape2D.new()
 	var shape := RectangleShape2D.new()
@@ -51,8 +62,6 @@ func _make_note(parent_path: Path2D, texture_path: String, action_name: String, 
 	icon.texture = load(texture_path)
 	icon.rotation = 7.0 * PI / 6.0
 
-	area.set_meta("action_name", action_name)
-
 	parent_path.add_child(path)
 	path.add_child(area)
 	area.add_child(hitbox)
@@ -62,16 +71,20 @@ func _make_note(parent_path: Path2D, texture_path: String, action_name: String, 
 	register_spawn()
 
 func createBnote() -> void:
-	_make_note(BString, "res://Icons/B_Icon.PNG", "B String", 0)
+	_make_note(BString, "res://Icons/B_Icon.PNG", "B String")
 
 func createEnote() -> void:
-	_make_note(EString, "res://Icons/E_Icon.PNG", "E String", 0)
+	_make_note(EString, "res://Icons/E_Icon.PNG", "E String")
 
 func createAnote() -> void:
-	_make_note(AString, "res://Icons/A_Icon.PNG", "A String", 0)
+	_make_note(AString, "res://Icons/A_Icon.PNG", "A String")
 
 func createDnote() -> void:
-	_make_note(DString, "res://Icons/D_Icon.PNG", "D String", 0)
+	_make_note(DString, "res://Icons/D_Icon.PNG", "D String")
 
 func createGnote() -> void:
+<<<<<<< Updated upstream
 	_make_note(GString, "res://Icons/G_Icon.PNG", "G String", 0)
+=======
+	_make_note(GString, "res://Icons/G_Icon.PNG", "G String")
+>>>>>>> Stashed changes

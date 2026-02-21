@@ -1,15 +1,15 @@
 [gd_scene format=3 uid="uid://bp7icxrxdctes"]
 
-[ext_resource type="Script" uid="uid://cf0ia5ev20vjc" path="res://Levels/Level 2/level_2.gd" id="1_mufmk"]
-[ext_resource type="Texture2D" uid="uid://b0j783w71vm5b" path="res://Guitar/Backgound.PNG" id="2_hxgna"]
+[ext_resource type="Script" uid="uid://8eq5hsochgy6" path="res://Levels/Level 1/level_1.gd" id="1_hxgna"]
 [ext_resource type="Texture2D" uid="uid://dg8abllqywpmq" path="res://Guitar/guitar_base.PNG" id="2_wfiis"]
 [ext_resource type="Texture2D" uid="uid://dfq51a6pt5y1k" path="res://Guitar/B_string.PNG" id="3_hxgna"]
 [ext_resource type="Texture2D" uid="uid://dtwfhlvcr14lu" path="res://Guitar/E_string.PNG" id="4_26o3n"]
 [ext_resource type="Texture2D" uid="uid://cdtt8xf2hin0" path="res://Guitar/A_string.PNG" id="5_8nn6k"]
 [ext_resource type="Texture2D" uid="uid://boga4rcrh1262" path="res://Guitar/D_string.PNG" id="6_5ljhn"]
 [ext_resource type="Texture2D" uid="uid://cwm2xtftv41xu" path="res://Guitar/G_string.PNG" id="7_vkr56"]
-[ext_resource type="AudioStream" uid="uid://u0janu6iu38h" path="res://Music/BAD.mp3" id="8_wfiis"]
-[ext_resource type="Texture2D" uid="uid://djc7uggeo4jjw" path="res://Icons/ScoreDisplay.PNG" id="9_wfiis"]
+[ext_resource type="AudioStream" uid="uid://cj8vnikmoy7i1" path="res://Music/batorial.mp3" id="8_26o3n"]
+[ext_resource type="Script" path="res://Levels/Level 1/hit_bar_a.gd" id="9_hxgna"]
+[ext_resource type="Texture2D" uid="uid://djc7uggeo4jjw" path="res://Icons/ScoreDisplay.PNG" id="10_26o3n"]
 
 [sub_resource type="Curve2D" id="Curve2D_jhvdf"]
 _data = {
@@ -41,86 +41,124 @@ _data = {
 }
 point_count = 2
 
-[node name="Level2" type="Node2D" unique_id=523294324]
-script = ExtResource("1_mufmk")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ya4yr"]
+size = Vector2(96.10162, 449.2651)
 
-[node name="Background" type="TextureRect" parent="." unique_id=1631633374]
-z_index = -1
-offset_right = 1920.0
-offset_bottom = 1080.0
-texture = ExtResource("2_hxgna")
+[node name="Level1" type="Node2D" unique_id=1064976132]
+script = ExtResource("1_hxgna")
 
-[node name="GuitarBase" type="TextureRect" parent="." unique_id=85126737]
+[node name="GuitarBase" type="TextureRect" parent="." unique_id=985401954]
 offset_right = 1920.0
 offset_bottom = 1080.0
 texture = ExtResource("2_wfiis")
 
-[node name="BString" type="Path2D" parent="." unique_id=729534429]
+[node name="BString" type="Path2D" parent="." unique_id=1494690079]
 position = Vector2(64, 12.999998)
 scale = Vector2(0.9573034, 0.95454556)
 curve = SubResource("Curve2D_jhvdf")
 
-[node name="BStr" type="TextureRect" parent="BString" unique_id=1252705614]
+[node name="BStr" type="TextureRect" parent="BString" unique_id=2013565173]
 offset_left = -66.854454
 offset_top = -13.619044
 offset_right = 1929.4014
 offset_bottom = 1129.3331
 texture = ExtResource("3_hxgna")
 
-[node name="EString" type="Path2D" parent="." unique_id=1042125965]
+[node name="EString" type="Path2D" parent="." unique_id=736394743]
 curve = SubResource("Curve2D_5m51o")
 
-[node name="EStr" type="TextureRect" parent="EString" unique_id=1631306575]
+[node name="EStr" type="TextureRect" parent="EString" unique_id=1957063528]
 offset_right = 1920.0
 offset_bottom = 1080.0
 texture = ExtResource("4_26o3n")
 
-[node name="AString" type="Path2D" parent="." unique_id=336530230]
+[node name="AString" type="Path2D" parent="." unique_id=193285634]
 curve = SubResource("Curve2D_i454g")
 
-[node name="AStr" type="TextureRect" parent="AString" unique_id=343223685]
+[node name="AStr" type="TextureRect" parent="AString" unique_id=437635118]
 offset_left = -8.0
 offset_right = 1920.0
 offset_bottom = 1085.0
 texture = ExtResource("5_8nn6k")
 
-[node name="DString" type="Path2D" parent="." unique_id=1453732659]
+[node name="DString" type="Path2D" parent="." unique_id=541109566]
 position = Vector2(52, -26)
 curve = SubResource("Curve2D_pdyvf")
 
-[node name="DStr" type="TextureRect" parent="DString" unique_id=1909984037]
+[node name="DStr" type="TextureRect" parent="DString" unique_id=1715102059]
 offset_left = -52.0
 offset_top = 26.0
 offset_right = 1868.0
 offset_bottom = 1106.0
 texture = ExtResource("6_5ljhn")
 
-[node name="GString" type="Path2D" parent="." unique_id=507685775]
+[node name="GString" type="Path2D" parent="." unique_id=406831098]
 position = Vector2(206, -102)
 curve = SubResource("Curve2D_c2j31")
 
-[node name="GStr" type="TextureRect" parent="GString" unique_id=836439260]
+[node name="GStr" type="TextureRect" parent="GString" unique_id=1874952960]
 offset_left = -206.0
 offset_top = 102.0
 offset_right = 1714.0
 offset_bottom = 1182.0
 texture = ExtResource("7_vkr56")
 
-[node name="StrumArea" type="Area2D" parent="." unique_id=1663987056]
+[node name="StrumArea" type="Area2D" parent="." unique_id=893851880]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StrumArea" unique_id=1164405081]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StrumArea" unique_id=1710674450]
 polygon = PackedVector2Array(212, 650, 421, 1054, 392, 1068, 185, 665)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1933253156]
-stream = ExtResource("8_wfiis")
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1315393116]
+stream = ExtResource("8_26o3n")
 autoplay = true
 
-[node name="delay timer" type="Timer" parent="." unique_id=465550730]
+[node name="delay timer" type="Timer" parent="." unique_id=960172678]
 
-[node name="beat timer" type="Timer" parent="." unique_id=169268403]
+[node name="beat timer" type="Timer" parent="." unique_id=1027265051]
 wait_time = 0.25
 
-[node name="PauseButton" type="Button" parent="." unique_id=1047548950]
+[node name="HitBar_A" type="Area2D" parent="." unique_id=247540955]
+collision_mask = 2
+script = ExtResource("9_hxgna")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBar_A" unique_id=1016140287]
+position = Vector2(306, 862)
+rotation = 2.645919
+shape = SubResource("RectangleShape2D_ya4yr")
+
+[node name="HitBar_B" type="Area2D" parent="." unique_id=550537404]
+script = ExtResource("9_hxgna")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBar_B" unique_id=1033438121]
+position = Vector2(306, 862)
+rotation = 2.645919
+shape = SubResource("RectangleShape2D_ya4yr")
+
+[node name="HitBar_D" type="Area2D" parent="." unique_id=1638397154]
+script = ExtResource("9_hxgna")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBar_D" unique_id=1243228764]
+position = Vector2(306, 862)
+rotation = 2.645919
+shape = SubResource("RectangleShape2D_ya4yr")
+
+[node name="HitBar_G" type="Area2D" parent="." unique_id=477635595]
+script = ExtResource("9_hxgna")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBar_G" unique_id=1686698129]
+position = Vector2(306, 862)
+rotation = 2.645919
+shape = SubResource("RectangleShape2D_ya4yr")
+
+[node name="HitBar_E" type="Area2D" parent="." unique_id=2017283628]
+script = ExtResource("9_hxgna")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBar_E" unique_id=1673273245]
+position = Vector2(306, 862)
+rotation = 2.645919
+shape = SubResource("RectangleShape2D_ya4yr")
+
+[node name="PauseButton" type="Button" parent="." unique_id=43709456]
 offset_left = 16.0
 offset_top = 16.0
 offset_right = 208.0
@@ -128,7 +166,7 @@ offset_bottom = 126.0
 theme_override_font_sizes/font_size = 32
 text = "Pause"
 
-[node name="UnpauseButton" type="Button" parent="." unique_id=1472098417]
+[node name="UnpauseButton" type="Button" parent="." unique_id=354107714]
 visible = false
 offset_left = 16.0
 offset_top = 16.0
@@ -138,18 +176,18 @@ size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 32
 text = "Unpause"
 
-[node name="BackButton" type="Button" parent="." unique_id=876444979]
+[node name="BackButton" type="Button" parent="." unique_id=881028775]
 visible = false
 offset_left = 16.0
-offset_top = 144.0
+offset_top = 140.0
 offset_right = 207.0
-offset_bottom = 258.0
+offset_bottom = 254.0
 theme_override_font_sizes/font_size = 32
 text = "Back"
 
-[node name="HitTimer1" type="Timer" parent="." unique_id=579160140]
+[node name="HitTimer1" type="Timer" parent="." unique_id=185584099]
 
-[node name="ScoreDisplay" type="TextureRect" parent="." unique_id=1140212786]
+[node name="ScoreDisplay" type="TextureRect" parent="." unique_id=1439489185]
 z_index = -1
 anchors_preset = 7
 anchor_left = 0.5
@@ -162,9 +200,9 @@ offset_right = 1911.0
 offset_bottom = 1077.0
 grow_horizontal = 2
 grow_vertical = 0
-texture = ExtResource("9_wfiis")
+texture = ExtResource("10_26o3n")
 
-[node name="ScoreLabel" type="Label" parent="." unique_id=883728492]
+[node name="ScoreLabel" type="Label" parent="." unique_id=2128801215]
 offset_left = 1551.0
 offset_top = 596.0
 offset_right = 1847.0

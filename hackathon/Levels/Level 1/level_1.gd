@@ -1,3 +1,6 @@
+# res://Levels/Level 1/level_1.gd
+# Attach to Level1 (Node2D)
+
 extends Node2D
 
 @onready var timer2: Timer = $"delay timer"
@@ -15,52 +18,60 @@ var chart_done := false
 var end_triggered := false
 
 func _ready() -> void:
+	# tell EndScreen what "retry" and "next" mean for this level
+	GlobalStrings.last_level = 1
+	GlobalStrings.retry_level_path = "res://Levels/Level 1/Level 1.tscn"
+	GlobalStrings.next_level_path  = "res://Levels/Level 2/Level 2.tscn"
+
 	# assign paths
 	GlobalStrings.BString = BString
 	GlobalStrings.EString = EString
 	GlobalStrings.AString = AString
 	GlobalStrings.DString = DString
 	GlobalStrings.GString = GString
-	
-	#pause button
+
+	# pause buttons always work while paused
 	$PauseButton.process_mode = Node.PROCESS_MODE_ALWAYS
 	$UnpauseButton.process_mode = Node.PROCESS_MODE_ALWAYS
 	$BackButton.process_mode = Node.PROCESS_MODE_ALWAYS
 
-	# reset score + notes list
+	# reset score + notes
 	GlobalStrings.reset_score()
 	GlobalStrings.active_notes.clear()
+
+	# optional initial UI state
+	$UnpauseButton.hide()
+	$BackButton.hide()
 
 	# run chart async
 	run_chart()
 
 func run_chart() -> void:
-	# --- chart (your current timing sequence) ---
 	timer2.start(2.29)
 	await timer2.timeout
 	GlobalStrings.createAnote()
 
-	timer1.start(2);   await timer1.timeout; GlobalStrings.createAnote()
-	timer1.start(1.9);   await timer1.timeout; GlobalStrings.createAnote()
-	timer1.start(1);   await timer1.timeout; GlobalStrings.createAnote()
-	timer1.start(1);   await timer1.timeout; GlobalStrings.createAnote()
+	timer1.start(2);    await timer1.timeout; GlobalStrings.createAnote()
+	timer1.start(1.9);  await timer1.timeout; GlobalStrings.createAnote()
+	timer1.start(1);    await timer1.timeout; GlobalStrings.createAnote()
+	timer1.start(1);    await timer1.timeout; GlobalStrings.createAnote()
 
-	timer1.start(2);   await timer1.timeout; GlobalStrings.createBnote()
-	timer1.start(1.9);   await timer1.timeout; GlobalStrings.createBnote()
-	timer1.start(2);   await timer1.timeout; GlobalStrings.createBnote()
-	timer1.start(1);   await timer1.timeout; GlobalStrings.createBnote()
-	timer1.start(1);   await timer1.timeout; GlobalStrings.createBnote()
+	timer1.start(2);    await timer1.timeout; GlobalStrings.createBnote()
+	timer1.start(1.9);  await timer1.timeout; GlobalStrings.createBnote()
+	timer1.start(2);    await timer1.timeout; GlobalStrings.createBnote()
+	timer1.start(1);    await timer1.timeout; GlobalStrings.createBnote()
+	timer1.start(1);    await timer1.timeout; GlobalStrings.createBnote()
 
-	timer1.start(2);   await timer1.timeout; GlobalStrings.createAnote()
-	timer1.start(1);   await timer1.timeout; GlobalStrings.createBnote()
-	timer1.start(1);   await timer1.timeout; GlobalStrings.createAnote()
-	timer1.start(1);   await timer1.timeout; GlobalStrings.createBnote()
-	timer1.start(1);   await timer1.timeout; GlobalStrings.createAnote()
+	timer1.start(2);    await timer1.timeout; GlobalStrings.createAnote()
+	timer1.start(1);    await timer1.timeout; GlobalStrings.createBnote()
+	timer1.start(1);    await timer1.timeout; GlobalStrings.createAnote()
+	timer1.start(1);    await timer1.timeout; GlobalStrings.createBnote()
+	timer1.start(1);    await timer1.timeout; GlobalStrings.createAnote()
 
-	timer1.start(0.5); await timer1.timeout; GlobalStrings.createBnote()
-	timer1.start(0.5); await timer1.timeout; GlobalStrings.createAnote()
-	timer1.start(0.5); await timer1.timeout; GlobalStrings.createBnote()
-	timer1.start(0.4); await timer1.timeout; GlobalStrings.createAnote()
+	timer1.start(0.5);  await timer1.timeout; GlobalStrings.createBnote()
+	timer1.start(0.5);  await timer1.timeout; GlobalStrings.createAnote()
+	timer1.start(0.5);  await timer1.timeout; GlobalStrings.createBnote()
+	timer1.start(0.4);  await timer1.timeout; GlobalStrings.createAnote()
 
 	timer1.start(0.25); await timer1.timeout; GlobalStrings.createBnote()
 	timer1.start(0.25); await timer1.timeout; GlobalStrings.createAnote()
@@ -70,11 +81,14 @@ func run_chart() -> void:
 	timer1.start(0.25); await timer1.timeout; GlobalStrings.createAnote()
 	timer1.start(0.25); await timer1.timeout; GlobalStrings.createBnote()
 	timer1.start(0.25); await timer1.timeout; GlobalStrings.createAnote()
-	timer1.start(5); await timer1.timeout;
+
+	# give last notes time to reach hitbars
+	timer1.start(5)
+	await timer1.timeout
 	chart_done = true
 
 func _physics_process(delta: float) -> void:
-	# move notes safely
+	# move notes safely (handles notes freed by hitbars)
 	for note in GlobalStrings.active_notes.duplicate():
 		if not is_instance_valid(note):
 			GlobalStrings.active_notes.erase(note)
@@ -89,22 +103,20 @@ func _physics_process(delta: float) -> void:
 			note.queue_free()
 
 func _process(_delta: float) -> void:
-	# go to end screen when chart is done and no notes left
+	# update score UI
+	score_label.text = str(GlobalStrings.hits) + " / " + str(GlobalStrings.hits + GlobalStrings.misses)
+
+	# go to EndScreen when chart is done and no notes left
 	if not end_triggered and chart_done and GlobalStrings.active_notes.size() == 0:
 		end_triggered = true
 		get_tree().change_scene_to_file("res://Menus/EndScreen.tscn")
-		
-	#update score
-	score_label.text = str(GlobalStrings.hits) + " / " + str(GlobalStrings.hits + GlobalStrings.misses)
-	
 
-#menu buttons
+# --- pause/menu buttons ---
 func _on_pause_button_pressed() -> void:
 	get_tree().paused = true
 	$UnpauseButton.show()
 	$PauseButton.hide()
 	$BackButton.show()
-
 
 func _on_unpause_button_pressed() -> void:
 	get_tree().paused = false
