@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://by74wu0i146ik"]
 
 [ext_resource type="Script" uid="uid://dd2geb2eap31f" path="res://Levels/Level 3/level_3.gd" id="1_i1l7u"]
+[ext_resource type="Texture2D" uid="uid://p43r6eptiie4" path="res://Guitar/Background.PNG" id="2_0lkno"]
 [ext_resource type="Texture2D" uid="uid://dg8abllqywpmq" path="res://Guitar/guitar_base.PNG" id="2_4dg1v"]
 [ext_resource type="Texture2D" uid="uid://dfq51a6pt5y1k" path="res://Guitar/B_string.PNG" id="3_0lkno"]
 [ext_resource type="Texture2D" uid="uid://dtwfhlvcr14lu" path="res://Guitar/E_string.PNG" id="4_ns5q6"]
@@ -8,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://boga4rcrh1262" path="res://Guitar/D_string.PNG" id="6_mh41u"]
 [ext_resource type="Texture2D" uid="uid://cwm2xtftv41xu" path="res://Guitar/G_string.PNG" id="7_1p8if"]
 [ext_resource type="AudioStream" uid="uid://bvwr8knvj01xc" path="res://Music/BADGE.mp3" id="8_4dg1v"]
-[ext_resource type="Script" uid="uid://ca2xq2008pmdv" path="res://Levels/Level 1/hit_bar_a.gd" id="9_wxr1i"]
+[ext_resource type="Script" path="res://Levels/Level 1/hit_bar_a.gd" id="9_wxr1i"]
 [ext_resource type="Texture2D" uid="uid://djc7uggeo4jjw" path="res://Icons/ScoreDisplay.PNG" id="10_4dg1v"]
 
 [sub_resource type="Curve2D" id="Curve2D_jhvdf"]
@@ -49,6 +50,12 @@ size = Vector2(96.10162, 449.2651)
 
 [node name="Level3" type="Node2D" unique_id=1064976132]
 script = ExtResource("1_i1l7u")
+
+[node name="Background" type="TextureRect" parent="." unique_id=2043853968]
+z_index = -1
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_0lkno")
 
 [node name="GuitarBase" type="TextureRect" parent="." unique_id=985401954]
 offset_right = 1920.0
