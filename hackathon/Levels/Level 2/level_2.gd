@@ -25,9 +25,9 @@ func _ready() -> void:
 	GlobalStrings.GString = GString
 
 	# pause UI always active
-	$PauseButton.process_mode = Node.PROCESS_MODE_ALWAYS
-	$UnpauseButton.process_mode = Node.PROCESS_MODE_ALWAYS
-	$BackButton.process_mode = Node.PROCESS_MODE_ALWAYS
+	$PauseButton2.process_mode = Node.PROCESS_MODE_ALWAYS
+	$UnpauseButton2.process_mode = Node.PROCESS_MODE_ALWAYS
+	$BackButton2.process_mode = Node.PROCESS_MODE_ALWAYS
 
 	# reset score + notes
 	GlobalStrings.reset_score()
@@ -155,18 +155,19 @@ func _process(_delta: float) -> void:
 
 
 # pause/menu buttons (same as level 1)
-func _on_pause_button_pressed() -> void:
+func _on_pause_button_2_pressed() -> void:
 	get_tree().paused = true
-	$UnpauseButton.show()
+	$UnpauseButton2.show()
+	$PauseButton2.hide()
+	$BackButton2.show()
 	$PauseButton.hide()
-	$BackButton.show()
 
-func _on_unpause_button_pressed() -> void:
+func _on_unpause_button_2_pressed() -> void:
 	get_tree().paused = false
-	$PauseButton.show()
-	$UnpauseButton.hide()
-	$BackButton.hide()
+	$PauseButton2.show()
+	$UnpauseButton2.hide()
+	$BackButton2.hide()
 
-func _on_back_button_pressed() -> void:
+func _on_back_button_2_pressed() -> void:
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://Menus/MainMenu.tscn")

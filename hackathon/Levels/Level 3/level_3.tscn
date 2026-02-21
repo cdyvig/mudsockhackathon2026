@@ -294,3 +294,6 @@ vertical_alignment = 1
 [connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="UnpauseButton" to="." method="_on_unpause_button_pressed"]
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="PauseButton2" to="." method="_on_pause_button_2_pressed"]
+[connection signal="pressed" from="UnpauseButton2" to="." method="_on_unpause_button_2_pressed"]
+[connection signal="pressed" from="BackButton2" to="." method="_on_back_button_2_pressed"]
