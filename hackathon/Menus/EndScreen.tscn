@@ -1,3 +1,40 @@
 [gd_scene format=3 uid="uid://dnflf1ijqhw23"]
 
 [node name="EndScreen" type="Node2D" unique_id=567126746]
+
+[node name="WinPanel" type="Control" parent="." unique_id=1399360762]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ResultLabel" type="Label" parent="WinPanel" unique_id=2136506006]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="NextButton" type="Button" parent="WinPanel" unique_id=333324278]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="RetryButton" type="Button" parent="WinPanel" unique_id=1292593914]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="LoosePanel" type="Control" parent="." unique_id=1647223710]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ResultLabel" type="Label" parent="LoosePanel" unique_id=176893271]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="RetryButton" type="Button" parent="LoosePanel" unique_id=676495494]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0

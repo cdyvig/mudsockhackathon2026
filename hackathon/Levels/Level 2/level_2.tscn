@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://boga4rcrh1262" path="res://Guitar/D_string.PNG" id="6_5ljhn"]
 [ext_resource type="Texture2D" uid="uid://cwm2xtftv41xu" path="res://Guitar/G_string.PNG" id="7_vkr56"]
 [ext_resource type="AudioStream" uid="uid://u0janu6iu38h" path="res://Music/BAD.mp3" id="8_wfiis"]
+[ext_resource type="Script" uid="uid://ca2xq2008pmdv" path="res://Levels/Level 1/hit_bar_a.gd" id="9_hxgna"]
+[ext_resource type="Texture2D" uid="uid://djc7uggeo4jjw" path="res://Icons/ScoreDisplay.PNG" id="10_26o3n"]
 
 [sub_resource type="Curve2D" id="Curve2D_jhvdf"]
 _data = {
@@ -38,6 +40,9 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 1920, 234, 0, 0, 0, 0, 0, 1182)
 }
 point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8nn6k"]
+size = Vector2(96.10162, 449.2651)
 
 [node name="Level2" type="Node2D" unique_id=523294324]
 script = ExtResource("1_mufmk")
@@ -138,6 +143,102 @@ offset_right = 207.0
 offset_bottom = 258.0
 theme_override_font_sizes/font_size = 32
 text = "Back"
+
+[node name="HitBar_A" type="Area2D" parent="." unique_id=1998733648]
+collision_mask = 2
+script = ExtResource("9_hxgna")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBar_A" unique_id=166007799]
+position = Vector2(306, 862)
+rotation = 2.645919
+shape = SubResource("RectangleShape2D_8nn6k")
+
+[node name="HitBar_B" type="Area2D" parent="." unique_id=676490284]
+script = ExtResource("9_hxgna")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBar_B" unique_id=264992802]
+position = Vector2(306, 862)
+rotation = 2.645919
+shape = SubResource("RectangleShape2D_8nn6k")
+
+[node name="HitBar_D" type="Area2D" parent="." unique_id=577428936]
+script = ExtResource("9_hxgna")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBar_D" unique_id=838139849]
+position = Vector2(306, 862)
+rotation = 2.645919
+shape = SubResource("RectangleShape2D_8nn6k")
+
+[node name="HitBar_G" type="Area2D" parent="." unique_id=2084821495]
+script = ExtResource("9_hxgna")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBar_G" unique_id=332107673]
+position = Vector2(306, 862)
+rotation = 2.645919
+shape = SubResource("RectangleShape2D_8nn6k")
+
+[node name="HitBar_E" type="Area2D" parent="." unique_id=1071870292]
+script = ExtResource("9_hxgna")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBar_E" unique_id=976018711]
+position = Vector2(306, 862)
+rotation = 2.645919
+shape = SubResource("RectangleShape2D_8nn6k")
+
+[node name="PauseButton2" type="Button" parent="." unique_id=304483366]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 208.0
+offset_bottom = 126.0
+theme_override_font_sizes/font_size = 32
+text = "Pause"
+
+[node name="UnpauseButton2" type="Button" parent="." unique_id=1895300150]
+visible = false
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 204.0
+offset_bottom = 126.0
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 32
+text = "Unpause"
+
+[node name="BackButton2" type="Button" parent="." unique_id=266302089]
+visible = false
+offset_left = 16.0
+offset_top = 140.0
+offset_right = 207.0
+offset_bottom = 254.0
+theme_override_font_sizes/font_size = 32
+text = "Back"
+
+[node name="HitTimer1" type="Timer" parent="." unique_id=773141117]
+
+[node name="ScoreDisplay" type="TextureRect" parent="." unique_id=1636565934]
+z_index = -1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 1411.0
+offset_top = 477.0
+offset_right = 1911.0
+offset_bottom = 1077.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("10_26o3n")
+
+[node name="ScoreLabel" type="Label" parent="." unique_id=389034506]
+offset_left = 1551.0
+offset_top = 596.0
+offset_right = 1847.0
+offset_bottom = 764.0
+rotation = -0.06981317
+theme_override_font_sizes/font_size = 64
+text = "0 / 0"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="UnpauseButton" to="." method="_on_unpause_button_pressed"]
