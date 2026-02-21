@@ -1,5 +1,4 @@
 # level_2.gd (attach to Level2 Node2D)
-
 extends Node2D
 
 @onready var timer2: Timer = $"delay timer"
@@ -11,27 +10,40 @@ extends Node2D
 @onready var DString: Path2D = $DString
 @onready var GString: Path2D = $GString
 
+# normal UI (shown during gameplay)
+@onready var score_display: TextureRect = $ScoreDisplay
 @onready var score_label: Label = $ScoreLabel
 
+# end UI (hidden until match ends)
+@onready var score_display_2: TextureRect = $ScoreDisplay2
+@onready var score_label_2: Label = $ScoreLabel2
+
 var chart_done := false
-var end_triggered := false
+var end_switched := false
+
 
 func _ready() -> void:
-	# assign paths (same as level 1)
+	# assign paths
 	GlobalStrings.BString = BString
 	GlobalStrings.EString = EString
 	GlobalStrings.AString = AString
 	GlobalStrings.DString = DString
 	GlobalStrings.GString = GString
 
-	# pause UI always active
-	$PauseButton2.process_mode = Node.PROCESS_MODE_ALWAYS
-	$UnpauseButton2.process_mode = Node.PROCESS_MODE_ALWAYS
-	$BackButton2.process_mode = Node.PROCESS_MODE_ALWAYS
+	# pause/menu buttons always active
+	$PauseButton.process_mode = Node.PROCESS_MODE_ALWAYS
+	$UnpauseButton.process_mode = Node.PROCESS_MODE_ALWAYS
+	$BackButton.process_mode = Node.PROCESS_MODE_ALWAYS
 
 	# reset score + notes
 	GlobalStrings.reset_score()
 	GlobalStrings.active_notes.clear()
+
+	# UI state at start
+	score_display.show()
+	score_label.show()
+	score_display_2.hide()
+	score_label_2.hide()
 
 	# run chart async
 	run_chart()
@@ -41,7 +53,7 @@ func run_chart() -> void:
 	timer2.start(2.29)
 	await timer2.timeout
 
-	# --- YOUR LEVEL 2 CHART (unchanged, just moved here) ---
+	# --- YOUR LEVEL 2 CHART (unchanged) ---
 	GlobalStrings.createBnote()
 	timer1.start(.25); await timer1.timeout; GlobalStrings.createDnote()
 	timer1.start(.5);  await timer1.timeout; GlobalStrings.createAnote()
@@ -130,7 +142,6 @@ func run_chart() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	# move notes safely + count misses (same as level 1)
 	for note in GlobalStrings.active_notes.duplicate():
 		if not is_instance_valid(note):
 			GlobalStrings.active_notes.erase(note)
@@ -145,29 +156,41 @@ func _physics_process(delta: float) -> void:
 
 
 func _process(_delta: float) -> void:
-	# update score label (same as level 1)
-	score_label.text = str(GlobalStrings.hits) + " / " + str(GlobalStrings.hits + GlobalStrings.misses)
+	# update BOTH score labels so end UI is correct when it appears
+	var txt := str(GlobalStrings.hits) + " / " + str(GlobalStrings.hits + GlobalStrings.misses)
+	score_label.text = txt
+	score_label_2.text = txt
 
-	# end condition (same as level 1)
-	if not end_triggered and chart_done and GlobalStrings.active_notes.size() == 0:
-		end_triggered = true
-		get_tree().change_scene_to_file("res://Menus/EndScreen.tscn")
+	# when match ends, switch UI once
+	if not end_switched and chart_done and GlobalStrings.active_notes.size() == 0:
+		end_switched = true
+		_switch_to_end_score_ui()
 
 
-# pause/menu buttons (same as level 1)
-func _on_pause_button_2_pressed() -> void:
+func _switch_to_end_score_ui() -> void:
+	# hide normal UI
+	score_display.hide()
+	score_label.hide()
+
+	# show end UI
+	score_display_2.show()
+	score_label_2.show()
+
+
+func _on_pause_button_pressed() -> void:
 	get_tree().paused = true
-	$UnpauseButton2.show()
-	$PauseButton2.hide()
-	$BackButton2.show()
+	$UnpauseButton.show()
 	$PauseButton.hide()
+	$BackButton.show()
 
-func _on_unpause_button_2_pressed() -> void:
+
+func _on_unpause_button_pressed() -> void:
 	get_tree().paused = false
-	$PauseButton2.show()
-	$UnpauseButton2.hide()
-	$BackButton2.hide()
+	$PauseButton.show()
+	$UnpauseButton.hide()
+	$BackButton.hide()
 
-func _on_back_button_2_pressed() -> void:
+
+func _on_back_button_pressed() -> void:
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://Menus/MainMenu.tscn")

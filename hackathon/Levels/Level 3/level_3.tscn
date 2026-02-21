@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://boga4rcrh1262" path="res://Guitar/D_string.PNG" id="6_mh41u"]
 [ext_resource type="Texture2D" uid="uid://cwm2xtftv41xu" path="res://Guitar/G_string.PNG" id="7_1p8if"]
 [ext_resource type="AudioStream" uid="uid://bvwr8knvj01xc" path="res://Music/BADGE.mp3" id="8_4dg1v"]
-[ext_resource type="Script" path="res://Levels/Level 1/hit_bar_a.gd" id="9_wxr1i"]
+[ext_resource type="Script" uid="uid://ca2xq2008pmdv" path="res://Levels/Level 1/hit_bar_a.gd" id="9_wxr1i"]
 [ext_resource type="Texture2D" uid="uid://djc7uggeo4jjw" path="res://Icons/ScoreDisplay.PNG" id="10_4dg1v"]
 
 [sub_resource type="Curve2D" id="Curve2D_jhvdf"]
@@ -266,7 +266,7 @@ text = "Back"
 [node name="HitTimer1" type="Timer" parent="." unique_id=1643194016]
 
 [node name="ScoreDisplay" type="TextureRect" parent="." unique_id=789522618]
-z_index = -1
+z_index = 3
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -280,12 +280,42 @@ grow_horizontal = 2
 grow_vertical = 0
 texture = ExtResource("10_4dg1v")
 
+[node name="ScoreDisplay2" type="TextureRect" parent="." unique_id=1542421646]
+z_index = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 593.0
+offset_top = 81.000015
+offset_right = 1093.0
+offset_bottom = 681.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.4226675, 1.4278692)
+texture = ExtResource("10_4dg1v")
+
 [node name="ScoreLabel" type="Label" parent="." unique_id=1203388566]
+z_index = 3
 offset_left = 1551.0
 offset_top = 596.0
 offset_right = 1847.0
 offset_bottom = 764.0
 rotation = -0.06981317
+theme_override_font_sizes/font_size = 64
+text = "0 / 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreLabel2" type="Label" parent="." unique_id=1207426787]
+z_index = 3
+offset_left = 794.00006
+offset_top = 247.0
+offset_right = 1090.0
+offset_bottom = 415.0
+rotation = -0.06981317
+scale = Vector2(1.3416443, 1.5152546)
 theme_override_font_sizes/font_size = 64
 text = "0 / 0"
 horizontal_alignment = 1
