@@ -19,7 +19,7 @@ func _on_level_2_start_pressed() -> void:
 	get_tree().change_scene_to_file("res://Levels/Level 2/level_2.tscn")
 
 func _on_level_3_start_pressed() -> void:
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://Levels/Level 3/level_3.tscn")
 
 func _on_level_4_start_pressed() -> void:
 	pass # Replace with function body.

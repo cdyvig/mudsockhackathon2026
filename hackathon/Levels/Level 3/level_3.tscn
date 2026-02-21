@@ -1,14 +1,14 @@
-[gd_scene format=3 uid="uid://ctp2vra80ohjm"]
+[gd_scene format=3 uid="uid://by74wu0i146ik"]
 
-[ext_resource type="Script" uid="uid://8eq5hsochgy6" path="res://Levels/Level 1/level_1.gd" id="1_qo688"]
-[ext_resource type="Texture2D" uid="uid://dg8abllqywpmq" path="res://Guitar/guitar_base.PNG" id="2_qo688"]
-[ext_resource type="Texture2D" uid="uid://dfq51a6pt5y1k" path="res://Guitar/B_string.PNG" id="3_es52h"]
-[ext_resource type="Texture2D" uid="uid://dtwfhlvcr14lu" path="res://Guitar/E_string.PNG" id="4_ya4yr"]
-[ext_resource type="Texture2D" uid="uid://cdtt8xf2hin0" path="res://Guitar/A_string.PNG" id="5_oyp2h"]
-[ext_resource type="Texture2D" uid="uid://boga4rcrh1262" path="res://Guitar/D_string.PNG" id="6_vl0ly"]
-[ext_resource type="Texture2D" uid="uid://cwm2xtftv41xu" path="res://Guitar/G_string.PNG" id="7_37cix"]
-[ext_resource type="AudioStream" uid="uid://cj8vnikmoy7i1" path="res://Music/batorial.mp3" id="8_qo688"]
-[ext_resource type="Script" uid="uid://ca2xq2008pmdv" path="res://Levels/Level 1/hit_bar_a.gd" id="9_es52h"]
+[ext_resource type="Script" uid="uid://dd2geb2eap31f" path="res://Levels/Level 3/level_3.gd" id="1_i1l7u"]
+[ext_resource type="Texture2D" uid="uid://dg8abllqywpmq" path="res://Guitar/guitar_base.PNG" id="2_4dg1v"]
+[ext_resource type="Texture2D" uid="uid://dfq51a6pt5y1k" path="res://Guitar/B_string.PNG" id="3_0lkno"]
+[ext_resource type="Texture2D" uid="uid://dtwfhlvcr14lu" path="res://Guitar/E_string.PNG" id="4_ns5q6"]
+[ext_resource type="Texture2D" uid="uid://cdtt8xf2hin0" path="res://Guitar/A_string.PNG" id="5_eah7e"]
+[ext_resource type="Texture2D" uid="uid://boga4rcrh1262" path="res://Guitar/D_string.PNG" id="6_mh41u"]
+[ext_resource type="Texture2D" uid="uid://cwm2xtftv41xu" path="res://Guitar/G_string.PNG" id="7_1p8if"]
+[ext_resource type="AudioStream" uid="uid://bvwr8knvj01xc" path="res://Music/BADGE.mp3" id="8_4dg1v"]
+[ext_resource type="Script" uid="uid://ca2xq2008pmdv" path="res://Levels/Level 1/hit_bar_a.gd" id="9_wxr1i"]
 
 [sub_resource type="Curve2D" id="Curve2D_jhvdf"]
 _data = {
@@ -43,13 +43,13 @@ point_count = 2
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ya4yr"]
 size = Vector2(96.10162, 449.2651)
 
-[node name="Level1" type="Node2D" unique_id=1064976132]
-script = ExtResource("1_qo688")
+[node name="Level3" type="Node2D" unique_id=1064976132]
+script = ExtResource("1_i1l7u")
 
 [node name="GuitarBase" type="TextureRect" parent="." unique_id=985401954]
 offset_right = 1920.0
 offset_bottom = 1080.0
-texture = ExtResource("2_qo688")
+texture = ExtResource("2_4dg1v")
 
 [node name="BString" type="Path2D" parent="." unique_id=1494690079]
 position = Vector2(64, 12.999998)
@@ -61,7 +61,7 @@ offset_left = -66.854454
 offset_top = -13.619044
 offset_right = 1929.4014
 offset_bottom = 1129.3331
-texture = ExtResource("3_es52h")
+texture = ExtResource("3_0lkno")
 
 [node name="EString" type="Path2D" parent="." unique_id=736394743]
 curve = SubResource("Curve2D_5m51o")
@@ -69,7 +69,7 @@ curve = SubResource("Curve2D_5m51o")
 [node name="EStr" type="TextureRect" parent="EString" unique_id=1957063528]
 offset_right = 1920.0
 offset_bottom = 1080.0
-texture = ExtResource("4_ya4yr")
+texture = ExtResource("4_ns5q6")
 
 [node name="AString" type="Path2D" parent="." unique_id=193285634]
 curve = SubResource("Curve2D_i454g")
@@ -78,7 +78,7 @@ curve = SubResource("Curve2D_i454g")
 offset_left = -8.0
 offset_right = 1920.0
 offset_bottom = 1085.0
-texture = ExtResource("5_oyp2h")
+texture = ExtResource("5_eah7e")
 
 [node name="DString" type="Path2D" parent="." unique_id=541109566]
 position = Vector2(52, -26)
@@ -89,7 +89,7 @@ offset_left = -52.0
 offset_top = 26.0
 offset_right = 1868.0
 offset_bottom = 1106.0
-texture = ExtResource("6_vl0ly")
+texture = ExtResource("6_mh41u")
 
 [node name="GString" type="Path2D" parent="." unique_id=406831098]
 position = Vector2(206, -102)
@@ -100,7 +100,7 @@ offset_left = -206.0
 offset_top = 102.0
 offset_right = 1714.0
 offset_bottom = 1182.0
-texture = ExtResource("7_37cix")
+texture = ExtResource("7_1p8if")
 
 [node name="StrumArea" type="Area2D" parent="." unique_id=893851880]
 
@@ -108,7 +108,7 @@ texture = ExtResource("7_37cix")
 polygon = PackedVector2Array(212, 650, 421, 1054, 392, 1068, 185, 665)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1315393116]
-stream = ExtResource("8_qo688")
+stream = ExtResource("8_4dg1v")
 autoplay = true
 
 [node name="delay timer" type="Timer" parent="." unique_id=960172678]
@@ -118,7 +118,7 @@ wait_time = 0.25
 
 [node name="HitBar_A" type="Area2D" parent="." unique_id=247540955]
 collision_mask = 2
-script = ExtResource("9_es52h")
+script = ExtResource("9_wxr1i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBar_A" unique_id=1016140287]
 position = Vector2(306, 862)
@@ -126,7 +126,7 @@ rotation = 2.645919
 shape = SubResource("RectangleShape2D_ya4yr")
 
 [node name="HitBar_B" type="Area2D" parent="." unique_id=550537404]
-script = ExtResource("9_es52h")
+script = ExtResource("9_wxr1i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBar_B" unique_id=1033438121]
 position = Vector2(306, 862)
@@ -134,7 +134,7 @@ rotation = 2.645919
 shape = SubResource("RectangleShape2D_ya4yr")
 
 [node name="HitBar_D" type="Area2D" parent="." unique_id=1638397154]
-script = ExtResource("9_es52h")
+script = ExtResource("9_wxr1i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBar_D" unique_id=1243228764]
 position = Vector2(306, 862)
@@ -142,7 +142,7 @@ rotation = 2.645919
 shape = SubResource("RectangleShape2D_ya4yr")
 
 [node name="HitBar_G" type="Area2D" parent="." unique_id=477635595]
-script = ExtResource("9_es52h")
+script = ExtResource("9_wxr1i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBar_G" unique_id=1686698129]
 position = Vector2(306, 862)
@@ -150,7 +150,7 @@ rotation = 2.645919
 shape = SubResource("RectangleShape2D_ya4yr")
 
 [node name="HitBar_E" type="Area2D" parent="." unique_id=2017283628]
-script = ExtResource("9_es52h")
+script = ExtResource("9_wxr1i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBar_E" unique_id=1673273245]
 position = Vector2(306, 862)
