@@ -45,9 +45,6 @@ point_count = 2
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ya4yr"]
 size = Vector2(96.10162, 449.2651)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0lkno"]
-size = Vector2(96.10162, 449.2651)
-
 [node name="Level3" type="Node2D" unique_id=1064976132]
 script = ExtResource("1_i1l7u")
 
@@ -195,77 +192,9 @@ offset_bottom = 254.0
 theme_override_font_sizes/font_size = 32
 text = "Back"
 
-[node name="HitBar_A2" type="Area2D" parent="." unique_id=712391263]
-collision_mask = 2
-script = ExtResource("9_wxr1i")
+[node name="HitTimer1" type="Timer" parent="." unique_id=1467870772]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBar_A2" unique_id=969271523]
-position = Vector2(306, 862)
-rotation = 2.645919
-shape = SubResource("RectangleShape2D_0lkno")
-
-[node name="HitBar_B2" type="Area2D" parent="." unique_id=1969515387]
-script = ExtResource("9_wxr1i")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBar_B2" unique_id=876505327]
-position = Vector2(306, 862)
-rotation = 2.645919
-shape = SubResource("RectangleShape2D_0lkno")
-
-[node name="HitBar_D2" type="Area2D" parent="." unique_id=2107095603]
-script = ExtResource("9_wxr1i")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBar_D2" unique_id=1603478086]
-position = Vector2(306, 862)
-rotation = 2.645919
-shape = SubResource("RectangleShape2D_0lkno")
-
-[node name="HitBar_G2" type="Area2D" parent="." unique_id=1199592342]
-script = ExtResource("9_wxr1i")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBar_G2" unique_id=128325741]
-position = Vector2(306, 862)
-rotation = 2.645919
-shape = SubResource("RectangleShape2D_0lkno")
-
-[node name="HitBar_E2" type="Area2D" parent="." unique_id=2096466191]
-script = ExtResource("9_wxr1i")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBar_E2" unique_id=206622587]
-position = Vector2(306, 862)
-rotation = 2.645919
-shape = SubResource("RectangleShape2D_0lkno")
-
-[node name="PauseButton2" type="Button" parent="." unique_id=1119387969]
-offset_left = 16.0
-offset_top = 16.0
-offset_right = 208.0
-offset_bottom = 126.0
-theme_override_font_sizes/font_size = 32
-text = "Pause"
-
-[node name="UnpauseButton2" type="Button" parent="." unique_id=1860716513]
-visible = false
-offset_left = 16.0
-offset_top = 16.0
-offset_right = 204.0
-offset_bottom = 126.0
-size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 32
-text = "Unpause"
-
-[node name="BackButton2" type="Button" parent="." unique_id=854085149]
-visible = false
-offset_left = 16.0
-offset_top = 140.0
-offset_right = 207.0
-offset_bottom = 254.0
-theme_override_font_sizes/font_size = 32
-text = "Back"
-
-[node name="HitTimer1" type="Timer" parent="." unique_id=1643194016]
-
-[node name="ScoreDisplay" type="TextureRect" parent="." unique_id=789522618]
+[node name="ScoreDisplay" type="TextureRect" parent="." unique_id=1999443980]
 z_index = -1
 anchors_preset = 7
 anchor_left = 0.5
@@ -280,7 +209,7 @@ grow_horizontal = 2
 grow_vertical = 0
 texture = ExtResource("10_4dg1v")
 
-[node name="ScoreLabel" type="Label" parent="." unique_id=1203388566]
+[node name="ScoreLabel" type="Label" parent="." unique_id=1733945316]
 offset_left = 1551.0
 offset_top = 596.0
 offset_right = 1847.0

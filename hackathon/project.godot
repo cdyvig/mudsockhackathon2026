@@ -22,7 +22,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameUI="*uid://del3rn74f410h"
-ClickSFX="*uid://b2nutq11uh6jf"
 GlobalStrings="*uid://d8ynqj8v6v02"
 
 [display]

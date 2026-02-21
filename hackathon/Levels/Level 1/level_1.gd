@@ -29,7 +29,6 @@ func _ready() -> void:
 
 	# reset score + notes list
 	GlobalStrings.reset_score()
-
 	GlobalStrings.active_notes.clear()
 
 	# run chart async
