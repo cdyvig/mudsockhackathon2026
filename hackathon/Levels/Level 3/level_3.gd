@@ -1,4 +1,4 @@
-# level_3.gd (attach to Level3 Node2D)
+
 extends Node2D
 
 @onready var timer2: Timer = $"delay timer"
@@ -10,11 +10,11 @@ extends Node2D
 @onready var DString: Path2D = $DString
 @onready var GString: Path2D = $GString
 
-# normal UI (shown during gameplay)
+
 @onready var score_display: TextureRect = $ScoreDisplay
 @onready var score_label: Label = $ScoreLabel
 
-# end UI (hidden until match ends)
+
 @onready var score_display_2: TextureRect = $ScoreDisplay2
 @onready var score_label_2: Label = $ScoreLabel2
 
@@ -23,29 +23,29 @@ var end_switched := false
 
 
 func _ready() -> void:
-	# assign paths
+	
 	GlobalStrings.BString = BString
 	GlobalStrings.EString = EString
 	GlobalStrings.AString = AString
 	GlobalStrings.DString = DString
 	GlobalStrings.GString = GString
 
-	# pause buttons always work
+	
 	$PauseButton2.process_mode = Node.PROCESS_MODE_ALWAYS
 	$UnpauseButton2.process_mode = Node.PROCESS_MODE_ALWAYS
 	$BackButton2.process_mode = Node.PROCESS_MODE_ALWAYS
 
-	# reset score + notes list
+	
 	GlobalStrings.reset_score()
 	GlobalStrings.active_notes.clear()
 
-	# UI state at start
+	
 	score_display.show()
 	score_label.show()
 	score_display_2.hide()
 	score_label_2.hide()
 
-	# start chart async
+	
 	run_chart()
 
 
@@ -129,23 +129,23 @@ func _physics_process(delta: float) -> void:
 
 
 func _process(_delta: float) -> void:
-	# update BOTH score labels so end UI is correct when it appears
+	
 	var txt := str(GlobalStrings.hits) + " / " + str(GlobalStrings.hits + GlobalStrings.misses)
 	score_label.text = txt
 	score_label_2.text = txt
 
-	# when match ends, switch UI once
+	
 	if not end_switched and chart_done and GlobalStrings.active_notes.size() == 0:
 		end_switched = true
 		_switch_to_end_score_ui()
 
 
 func _switch_to_end_score_ui() -> void:
-	# hide normal UI
+	
 	score_display.hide()
 	score_label.hide()
 
-	# show end UI
+	
 	score_display_2.show()
 	score_label_2.show()
 

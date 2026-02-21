@@ -135,7 +135,7 @@ func run_chart() -> void:
 	timer1.start(.25); await timer1.timeout; GlobalStrings.createBnote()
 	timer1.start(.25); await timer1.timeout; GlobalStrings.createBnote()
 
-	# small wait so last notes can travel into bars
+	
 	timer1.start(5)
 	await timer1.timeout
 	chart_done = true
