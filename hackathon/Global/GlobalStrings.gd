@@ -1,5 +1,7 @@
 extends Node
 
+@export var click_stream: AudioStream
+
 var BString: Path2D
 var EString: Path2D
 var AString: Path2D
@@ -75,3 +77,5 @@ func createDnote() -> void:
 
 func createGnote() -> void:
 	_make_note(GString, "res://Icons/G_Icon.PNG", "G String", 0)
+	
+	
